@@ -1,5 +1,7 @@
 #include "mlx.h"
 #include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
 
 /*int main(void)
 {
@@ -31,24 +33,103 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	*(unsigned int*)dst = color;
 }
 
+void	draw_line(t_data *img, int x0, int y0, int x1, int y1)
+{
+    int dx = abs(x1 - x0);
+    int dy = abs(y1 - y0);
+    int sx = x0 < x1 ? 1 : -1;
+    int sy = y0 < y1 ? 1 : -1;
+    int err = dx - dy;
+
+    while (x0 != x1 || y0 != y1) {
+        my_mlx_pixel_put(img, x0, y0, 0x00FF00);
+        int e2 = 2 * err;
+        if (e2 > -dy) {
+            err -= dy;
+            x0 += sx;
+        }
+        if (e2 < dx) {
+            err += dx;
+            y0 += sy;
+        }
+    }
+    my_mlx_pixel_put(img, x0, y0, 0x00FF00);
+}
+
+void ft_apply_matrix(t_data *img, int x, int y, int z)
+{
+    int	new_x = (x - y) * sqrt(3) / 2;
+	int	new_y = -z + (x + y) / 2;
+	my_mlx_pixel_put(img, new_x, new_y, 0x00FF00);
+}
+
 int	main(void)
 {
 	void	*mlx;
 	void	*mlx_win;
 	t_data	img;
-    int i;
+    int x;
+	int y;
+	// int a;
+	// int b;
+	// int c;
+	// int	d;
+	// {0, 200, 200, 0}
+	int	matrix[4][4] = {{0, 0, 0, 0}, {0, 40, 40, 0}, {0, 40, 40, 0}, {0, 0, 0, 0}};
+	// int	matrix[4][4] = {{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}};
+
 
 	mlx = mlx_init();
 	mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello world!");
 	img.img = mlx_new_image(mlx, 1920, 1080);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
-	my_mlx_pixel_put(&img, 5, 5, 0x00FF0000);
-	//mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
-    i = 0;
-    while (i < 1000)
-    {
-        mlx_put_image_to_window(mlx, mlx_win, img.img, i, 0);
-        i++;
-    }
+	//my_mlx_pixel_put(&img, 5, 5, 0x00FF0000);
+
+	x = 0;
+	while (x < 4)
+	{
+		y = 0;
+		while (y < 4)
+		{
+			ft_apply_matrix(&img, x * 100 + 500, y * 100, matrix[x][y]);
+			if (y != 3)
+			// (x * 100 + 500 - y * 100) * sqrt(3) / 2,
+			// -1 * matrix[x][y] + (x * 100 + 500 + y * 100) / 2
+				draw_line(&img, (x * 100 + 500 - y * 100) * sqrt(3) / 2, -1 * matrix[x][y] + (x * 100 + 500 + y * 100) / 2, 
+								(x * 100 + 500 - (y + 1) * 100) * sqrt(3) / 2, -1 * matrix[x][y + 1] + (x * 100 + 500 + (y + 1) * 100) / 2);
+			if (x != 3)
+				draw_line(&img, (x * 100 + 500 - y * 100) * sqrt(3) / 2, -1 * matrix[x][y] + (x * 100 + 500 + y * 100) / 2, 
+								((x + 1) * 100 + 500 - y * 100) * sqrt(3) / 2, -1 * matrix[x + 1][y] + ((x + 1) * 100 + 500 + y * 100) / 2);
+			y++;
+		}
+		x++;
+	}
+
+	//x = 0;
+    // while (x < 1920)
+    // {
+	// 	y = 0;
+	// 	while (y < 1080)
+	// 	{
+	// 		if (pow((x - 100), 2) + pow((y - 100), 2) < 10000) // For making a circle
+	// 		// if (x == 0 || y == 0 || x == 1919 || y == 1079) // draw a rectangle
+	// 		{
+	// 			a = x * sqrt(3) / 2 + y * 1 / 2;
+	// 			b = -1 * 1 / 2 * x + y * sqrt(3) / 2;
+	// 			/*
+	// 			x' = (x - y) * cos(30°)
+	// 			y' = -z + (x + y) * sin(30°)
+	// 			*/
+	// 			c = (x - y) * sqrt(3) / 2;
+	// 			d = -10 + (x + y) / 2;
+	//  	       	my_mlx_pixel_put(&img, a + 500, b, 0x00FF00);
+	// 			my_mlx_pixel_put(&img, c + 1000, d, 0x0000FF);
+	// 			my_mlx_pixel_put(&img, x, y, 0xFF0000);
+	// 		}
+	// 		y++;
+	// 	}
+	// 	x++;
+    // }
+	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
 	mlx_loop(mlx);
 }
