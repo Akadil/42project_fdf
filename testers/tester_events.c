@@ -6,11 +6,12 @@
 /*   By: akalimol <akalimol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 15:25:57 by akalimol          #+#    #+#             */
-/*   Updated: 2023/02/21 17:37:52 by akalimol         ###   ########.fr       */
+/*   Updated: 2023/02/22 17:18:57 by akalimol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 #include "mlx.h"
 
@@ -32,10 +33,13 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	*(unsigned int*)dst = color;
 }
 
-int	handle_keyboard(int keycode, t_data *vars)
+int	handle_keyboard(int keycode, t_data *data)
 {
     if (keycode == 65307)
-    	mlx_destroy_window(vars->mlx, vars->win);
+    {
+    	mlx_destroy_window(data->mlx, data->win);
+
+    }
     else
         printf("Your key is %d\n", keycode);
     return (0);
@@ -110,6 +114,7 @@ int main(void)
     mlx_hook(data.win, 8, 1L<<6, handle_exit, NULL);
     
 	mlx_loop(data.mlx);
-
+    mlx_destroy_display(data.mlx);
+    free(data.mlx);
     return (0);
 }
