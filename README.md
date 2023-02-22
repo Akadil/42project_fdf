@@ -6,15 +6,13 @@
 # Requirements
 #### End product:
 - Create controllable 2-d representation of 3-d object
-
-### Features:
+#### Features:
 - Show the 3d object in 2 projections (iso + smth)
 - Zoom in and out
 - Translate the model
 - Rotate the model
 - Add one more bonus
-
-### Requirements:
+#### Requirements:
 - We have to use the MiniLibx and math library
 - Take a map as an input (taking into account that map is properly formatted)
 - Use isometric projection for transforming 2d → 3d
