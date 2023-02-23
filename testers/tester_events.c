@@ -6,7 +6,7 @@
 /*   By: akalimol <akalimol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 15:25:57 by akalimol          #+#    #+#             */
-/*   Updated: 2023/02/22 17:18:57 by akalimol         ###   ########.fr       */
+/*   Updated: 2023/02/23 14:23:14 by akalimol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,8 +104,8 @@ int main(void)
     t_data	data;
 
 	data.mlx = mlx_init();
-	data.win = mlx_new_window(data.mlx, 500, 500, "Hello world!");
-    data.img =  mlx_new_image(data.mlx, 500, 500);
+	data.win = mlx_new_window(data.mlx, 1920, 1080, "Hello world!");
+    data.img =  mlx_new_image(data.mlx, 1920, 1080);
     data.addr = mlx_get_data_addr(data.img, &data.bits_per_pixel, &data.line_length, &data.endian);
 	mlx_hook(data.win, 2, 1L<<0, handle_keyboard, &data);
     mlx_hook(data.win, 4, 1L<<2, handle_mouse, &data);
