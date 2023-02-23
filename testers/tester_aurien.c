@@ -29,6 +29,7 @@ typedef struct s_data
 	void	*win_ptr;
 	t_img	img;
 	int		cur_img;
+	int		color;
 }	t_data;
 
 typedef struct s_rect
@@ -101,6 +102,10 @@ int	handle_keypress(int keysym, t_data *data)
 		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 		data->win_ptr = NULL;
 	}
+	if (keysym == 'w')
+	{
+		data->color = GREEN_PIXEL;
+	}
 	return (0);
 }
 
@@ -110,7 +115,7 @@ int	render(t_data *data)
 		return (1);
 	render_background(&data->img, WHITE_PIXEL);
 	render_rect(&data->img, (t_rect){WINDOW_WIDTH - 100, WINDOW_HEIGHT - 100, 100, 100, GREEN_PIXEL});
-	render_rect(&data->img, (t_rect){0, 0, 100, 100, RED_PIXEL});
+	render_rect(&data->img, (t_rect){0, 0, 100, 100, data->color});
 
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.mlx_img, 0, 0);
 
@@ -130,6 +135,8 @@ int	main(void)
 		free(data.win_ptr);
 		return (MLX_ERROR);
 	}
+
+	data.color = RED_PIXEL;
 
 	/* Setup hooks */ 
 	data.img.mlx_img = mlx_new_image(data.mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT);

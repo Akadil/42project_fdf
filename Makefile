@@ -1,7 +1,7 @@
 NAME			= fdf
 
 
-SRCS            = tester_events.c
+SRCS            = tester_init.c
 
 SRCS_DIR		= ./testers
 BUILD_DIR       = ./.build

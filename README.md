@@ -40,7 +40,8 @@ typedef struct s_data{
     // Scaling info
     int     alpha; 
     int     beta;
-    int     grid;
+    int     grid_coef;
+    int     attitude_coef;
     int     x_offset;
     int     y_offset;
     int     proj_model;
@@ -108,6 +109,21 @@ def ft_set_coefficients(t_data *my_data):
     my_data->y_ofset = 250;
 ```
 
+```
+def ft_calculate_coef():
+    int max;
+    int z_max = ft_z_max();
+
+    max = data->mtrx_width;
+    if (data->mtrx_height > max)
+        max = data->mtrx_height
+    my_data->grid_coef = ( 1920 / 2 - x_offset ) / max;
+    my_data->attitude_coef = (1080 / 2 - y_offset ) / z_max;
+
+    // if the coef are too small, try to handle with different offsets;
+
+```
+
 <br> </br>
 
 ---
@@ -137,7 +153,50 @@ def ft_draw(t_data *data):
         }
         row ++;
     }
+```
 
+```
+def draw_line(t_data *data, int point1[2], int point2[2]):
+    int dx = abs(x1 - x0);
+    int dy = abs(y1 - y0);
+    int sx = x0 < x1 ? 1 : -1;
+    int sy = y0 < y1 ? 1 : -1;
+    int err = dx - dy;
+
+    while (x0 != x1 || y0 != y1) {
+		//printf("I was here %d %d\n", x0, y0);
+        my_mlx_pixel_put(img, x0, y0, 0x00FF00);
+        int e2 = 2 * err;
+        if (e2 > -dy) {
+            err -= dy;
+            x0 += sx;
+        }
+        if (e2 < dx) {
+            err += dx;
+            y0 += sy;
+        }
+    }
+    my_mlx_pixel_put(img, x0, y0, 0x00FF00);
+}
+```
+
+```
+def apply_coefficients(data, row, column):
+    
+    int     returner[2];
+    float   alpha_rad;
+    float   beta_rad;
+    float   pi;
+
+    pi = 3.142857;
+    alpha_rad = data->alpha * (pi / 180.0);
+    beta_rad = data->beta * (pi / 180.0);
+
+    returner[0] = (x * data->grid_coef + data->x_offset) * cos(alpha_rad) - 
+                    (data->matrix[row][col] * data->grid) * sin(beta_rad)
+    returner[1] = (x * data->grid_coef + data->x_offset) * sin(alpha_rad) * sin(beta_rad)+ 
+                    (y * data->grid_coef + data->y_offset) * cos(alpha_rad) + 
+                    (data->matrix[row][col] * data_grid) * sin (alpha_rad) * cos (beta_rad)
 ```
 
 <br> </br>
@@ -148,7 +207,7 @@ def ft_draw(t_data *data):
 ## Handle hooks
 
 I have 2 type of hooks: keybord and mouse \
-keyboard
+### Keyboard:
 - `a:` rotate_left
 - `d:` rotate right
 - `w:` rotate upword
@@ -159,3 +218,30 @@ keyboard
 - `t:` change translation model
 - `c:` change color
 
+```
+int handle_keypress(int keysym, t_data *data)
+{
+    if (keysym == 'esc')
+    {
+        mlx_destroy and ft_clean;
+    }
+    if (keysym == 'w')
+    {
+        data->beta = data->beta + 10;
+    }
+    if (keysym == 'a')
+    {
+        data->alpha = data->alpha + 10;
+    }
+    if (keysym == +)
+    {
+        data->grid_coef = data_grid_coef + 1; // Or something like this
+    }
+    if (keysym == t)
+    {
+        change
+    }
+    if (translate)
+        translate
+}
+```
