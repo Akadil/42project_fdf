@@ -36,6 +36,7 @@ typedef struct s_data{
     int   **matrix;
     int   mtrx_length;
     int   mtrx_height;
+    int     z_max;
     
     // Scaling info
     int     alpha; 
@@ -156,7 +157,7 @@ def ft_draw(t_data *data):
 ```
 
 ```
-def draw_line(t_data *data, int point1[2], int point2[2]):
+def draw_line(t_data *data, int point1[2], int point2[2], int z1, int z2):
     int dx = abs(x1 - x0);
     int dy = abs(y1 - y0);
     int sx = x0 < x1 ? 1 : -1;
@@ -165,7 +166,7 @@ def draw_line(t_data *data, int point1[2], int point2[2]):
 
     while (x0 != x1 || y0 != y1) {
 		//printf("I was here %d %d\n", x0, y0);
-        my_mlx_pixel_put(img, x0, y0, 0x00FF00);
+        my_mlx_pixel_put(img, x0, y0, ft_color());
         int e2 = 2 * err;
         if (e2 > -dy) {
             err -= dy;
@@ -176,7 +177,23 @@ def draw_line(t_data *data, int point1[2], int point2[2]):
             y0 += sy;
         }
     }
-    my_mlx_pixel_put(img, x0, y0, 0x00FF00);
+    my_mlx_pixel_put(img, x0, y0, ft_color());
+}
+
+def ft_color(t_data *data, int z1, int z2, int x1, x0, x_new)
+    int color;
+    int z1_coef;
+    int z2_coef;
+
+    z1_coef = z1 * 255 / data->z_max; // 137
+    z2_coef = z2 * 255 / data->z_max; // 156
+
+    color = ft_min(z1_coef, z1_coef) + (x_new - x0) / (x1 - x0) * abs(z1_coef - z2_coef);
+    return (create_rgb(255, 255, 255 - color));
+
+int	create_rgb(int r, int g, int b)
+{
+	return (r << 16 | g << 8 | b);
 }
 ```
 
@@ -245,3 +262,12 @@ int handle_keypress(int keysym, t_data *data)
         translate
 }
 ```
+
+<br> </br>
+
+---
+<br> </br>
+
+## Handle the color
+> How to manage drawing the fucking color !!!!!
+

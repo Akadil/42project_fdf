@@ -6,15 +6,15 @@
 /*   By: akalimol <akalimol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 15:08:45 by akalimol          #+#    #+#             */
-/*   Updated: 2023/02/21 15:13:00 by akalimol         ###   ########.fr       */
+/*   Updated: 2023/02/23 19:16:03 by akalimol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int	create_trgb(int t, int r, int g, int b)
+int	create_trgb(int r, int g, int b)
 {
-	return (t << 24 | r << 16 | g << 8 | b);
+	return (r << 16 | g << 8 | b);
 }
 
 int	get_t(int trgb)
