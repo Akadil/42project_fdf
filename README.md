@@ -44,20 +44,33 @@ typedef struct s_data{
 } t-data;
 ```
 
-Main part
+Main part. Here I have to have only the mlx configurations
+1. Initialize my data
+2. Prepare my data
+    1. Parse the map
+    2. Prepare the scale coefficients
+3. Draw the 3d object with default configuration 
+4. Allow mouse and keyboard hooks to control the object
+5. Clean at the end 
 ```
 def main():
     t_data  my_data;
 
     mlx_init();
-    mlx_window();
-    mlx_image();
-
-    ft_parse();
+    ft_prepare_the_data();
 
     ft_draw();
-    mlx_loop_hook();
     mlx_hook_keyboard();
-    mlx_loop();
+    mlx_hook_mouse();
     mlx_clean();
+```
+
+Ft_prepare the data
+```
+def ft_prepare_the_data(int argc, char **argv, t_data *my_data):
+    ft_parse(argc, argv, my_data);
+    ft_set_coefficients(my_data);
+
+def ft_parse():
+
 ```
