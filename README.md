@@ -18,3 +18,5 @@
 - Use isometric projection for transforming 2d → 3d
 - The management of my window must remain smooth
 - ESC and cross button
+
+> Do I have to draw user flow diagram?
