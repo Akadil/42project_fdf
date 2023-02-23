@@ -118,8 +118,8 @@ def ft_calculate_coef():
     max = data->mtrx_width;
     if (data->mtrx_height > max)
         max = data->mtrx_height
-    my_data->grid_coef = ( 1920 / 2 - x_offset ) / max;
-    my_data->attitude_coef = (1080 / 2 - y_offset ) / z_max;
+    my_data->grid_coef = ( 1920 - x_offset * 2 ) / max / sqrt(2);
+    my_data->attitude_coef = (1080 - y_offset * 2 ) / z_max;
 
     // if the coef are too small, try to handle with different offsets;
 
