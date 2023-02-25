@@ -137,12 +137,8 @@ int	main(void)
 	}
 
 	data.color = RED_PIXEL;
-
-	/* Setup hooks */ 
-	data.img.mlx_img = mlx_new_image(data.mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT);
-	
-	data.img.addr = mlx_get_data_addr(data.img.mlx_img, &data.img.bpp,
-			&data.img.line_len, &data.img.endian);
+	data.img.mlx_img = mlx_new_image(data.mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT);	
+	data.img.addr = mlx_get_data_addr(data.img.mlx_img, &data.img.bpp, &data.img.line_len, &data.img.endian);
 
 	mlx_loop_hook(data.mlx_ptr, &render, &data);
 	mlx_hook(data.win_ptr, KeyPress, KeyPressMask, &handle_keypress, &data);

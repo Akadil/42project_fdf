@@ -6,7 +6,7 @@
 /*   By: akalimol <akalimol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 15:08:45 by akalimol          #+#    #+#             */
-/*   Updated: 2023/02/23 19:16:03 by akalimol         ###   ########.fr       */
+/*   Updated: 2023/02/25 19:01:21 by akalimol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int main(void)
 {
     int my_color;
 
-    my_color = create_trgb(0, 255, 255, 255);
+    my_color = create_trgb(255, 255, 255);
     printf("My color is %d\n", my_color);
     printf("The red %d\n", get_r(my_color));
     printf("The green %d\n", get_g(my_color));

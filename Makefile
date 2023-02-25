@@ -1,9 +1,8 @@
 NAME			= fdf
 
+SRCS            = ft_init.c ft_prepare_data.c ft_main.c
 
-SRCS            = tester_init.c
-
-SRCS_DIR		= ./testers
+SRCS_DIR		= ./srcs
 BUILD_DIR       = ./.build
 INCLUDES_DIR	= ./headers
 
@@ -18,10 +17,10 @@ HFLAGS			= -I $(INCLUDES_DIR)
 all					: ${NAME}
 
 ${NAME}         	: ${OBJS}
-			${CC} $(OBJS) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+			${CC} $(OBJS) -o $(NAME) -Lmlx_linux -lmlx_Linux -L/usr/lib -lXext -lX11 -lm -lz -Llibft -lft  
 
 ${BUILD_DIR}/%.o	:$(SRCS_DIR)/%.c
-			${CC} ${CFLAGS} $(HFLAGS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
+			${CC} ${CFLAGS} $(HFLAGS) -g -Imlx_linux -Ilibft/includes -I/usr/include -Imlx_linux -O3 -c $< -o $@ 
 
 clean			:
 			rm -rf ${OBJS}
