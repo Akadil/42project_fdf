@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_main.c                                          :+:      :+:    :+:   */
+/*   ft_error.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akalimol <akalimol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/24 11:56:54 by akalimol          #+#    #+#             */
-/*   Updated: 2023/02/26 18:40:24 by akalimol         ###   ########.fr       */
+/*   Created: 2023/02/26 16:22:52 by akalimol          #+#    #+#             */
+/*   Updated: 2023/02/26 18:23:23 by akalimol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "ft_main.h"
-#include "ft_mlx.h"
+#ifndef FT_ERROR_H
+# define FT_ERROR_H
 
-int main(int argc, char **argv)
-{
-    t_data  *my_data;
+void	ft_strerror(void);
+void	ft_perror(char *str);
+void	ft_merror(char *str, char *param);
 
-    my_data = NULL;
-    ft_init(&my_data);
-    ft_prepare_data(argc, argv, my_data);
-    return (0);
-}
+#endif

@@ -6,7 +6,7 @@
 /*   By: akalimol <akalimol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 14:57:03 by akalimol          #+#    #+#             */
-/*   Updated: 2023/02/25 19:32:21 by akalimol         ###   ########.fr       */
+/*   Updated: 2023/02/26 18:44:24 by akalimol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 #include <fcntl.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include "libft.h"
+#include "ft_libft.h"
 
-static void ft_parse(char **argv, t_data *my_data);
+void ft_parse(char **argv, t_data *my_data);
 static void ft_set_coefficients(t_data *my_data);
 static int ft_find_grid(t_data *my_data);
 static int ft_find_attitude(t_data *my_data);
@@ -32,49 +32,6 @@ void    ft_prepare_data(int argc, char **argv, t_data *my_data)
     ft_parse(argv,  my_data);
     ft_set_coefficients(my_data);
 }
-
-static void    ft_parse(char **argv, t_data *my_data)
-{
-    char    *my_str;
-    char    **str_array;
-    int     fd;
-    int     i;
-    int     j;
-
-    fd = open(argv[1], O_RDONLY);
-    my_str = get_next_line(fd, 0);
-    i = 0;
-    while (my_str)
-    {
-        str_array = ft_split(my_str, ' ');
-        j = 0;
-        while (str_array && str_array[j])
-        {
-            my_data->matrix[i][j] = ft_atoi(str_array[j]);
-            free (str_array[j]);
-            j++;
-        }
-        i++;
-        free (my_str);
-        my_str = get_next_line(fd, 0);
-    }
-    get_next_line(fd, 1);
-    close(fd);
-}
-
-/*
-    typedef struct s_coef
-    {
-        int     alpha; 
-        int     beta;
-        int     grid_coef;
-        int     attitude_coef;
-        int     x_offset;
-        int     y_offset;
-        int     proj_model;
-        int     color;
-    }   t_coef;
-*/
 
 static void ft_set_coefficients(t_data *my_data)
 {

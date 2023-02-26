@@ -6,7 +6,7 @@
 /*   By: akalimol <akalimol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 11:57:14 by akalimol          #+#    #+#             */
-/*   Updated: 2023/02/25 18:27:28 by akalimol         ###   ########.fr       */
+/*   Updated: 2023/02/26 16:18:41 by akalimol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,43 +22,40 @@
 
 typedef struct s_img
 {
-	void	*mlx_img;
-	char	*addr;
-	int		bpp; /* bits per pixel */
-	int		line_len;
-	int		endian;
-}	t_img;
+	void		*mlx_img;
+	char		*addr;
+	int			bpp;
+	int			line_len;
+	int			endian;
+}				t_img;
 
 typedef struct s_coef
 {
-    int     alpha; 
-    int     beta;
-    int     grid;
-    int     attitude;
-    int     x_offset;
-    int     y_offset;
-    int     proj_model;
-    int     color;
-}   t_coef;
+	int			alpha;
+	int			beta;
+	int			grid;
+	int			attitude;
+	int			x_offset;
+	int			y_offset;
+	int			proj_model;
+}				t_coef;
 
+typedef struct s_matrix
+{
+	int			**matrix;
+	int			**colors;
+	int			mtrx_length;
+	int			mtrx_height;
+	int			z_max;
+}				t_matrix;
 
-typedef struct s_data{
-
-    // MLX info
-    void *mlx_ptr;
-    void *win_ptr;
-
-    t_img	img;
-    
-    // Matrix info
-    int   **matrix;
-    int   mtrx_length;
-    int   mtrx_height;
-    int     z_max;
-    
-    // Scaling info
-    t_coef  coef;
-
-} t_data;
+typedef struct s_data
+{
+	void		*mlx_ptr;
+	void		*win_ptr;
+	t_img		img;
+	t_matrix	mtrx;
+	t_coef		coef;
+}				t_data;
 
 #endif
