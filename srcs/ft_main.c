@@ -6,12 +6,12 @@
 /*   By: akalimol <akalimol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 11:56:54 by akalimol          #+#    #+#             */
-/*   Updated: 2023/02/26 18:40:24 by akalimol         ###   ########.fr       */
+/*   Updated: 2023/02/27 13:27:56 by akalimol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "ft_main.h"
+#include "ft_fdf.h"
 #include "ft_mlx.h"
 
 int main(int argc, char **argv)

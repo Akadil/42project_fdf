@@ -9,8 +9,9 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/fdf",
-            "args": ["test_maps/elem.fdf"],
-            "stopAtEntry": true,
+            "preLaunchTask": "C/C++: gcc build active file",
+            "args": ["maps/elem.fdf"],
+            "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
             "externalConsole": false,
@@ -27,6 +28,6 @@
                     "ignoreFailures": true
                 }
             ]
-        }
+        },
     ]
 }

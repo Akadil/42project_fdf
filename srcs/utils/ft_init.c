@@ -6,13 +6,11 @@
 /*   By: akalimol <akalimol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 12:01:21 by akalimol          #+#    #+#             */
-/*   Updated: 2023/02/26 18:44:44 by akalimol         ###   ########.fr       */
+/*   Updated: 2023/02/27 20:12:51 by akalimol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "ft_data.h"
-//#include "ft_mlx.h"
+#include "ft_init.h"
 
 void    ft_init(t_data **my_data)
 {
@@ -20,22 +18,41 @@ void    ft_init(t_data **my_data)
 
     data = (t_data *)malloc(sizeof(t_data));
     if (!data)
-        exit (-1);
-    // data->mlx_ptr = mlx_init();
-    // if (data->mlx_ptr == NULL)
-    // {
-    //     free (data);
-    //     exit(-1);
-    // }
-    // data->win_ptr = mlx_new_window(data->mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT, "Fil de Fer (FdF)");
-    // if (!data->win_ptr)
-    // {
-    //     free (data->mlx_ptr);
-    //     free (data);
-    //     exit (-1);
-    // }
-    // data->coef.color = RED_PIXEL;
-    // data->img.mlx_img = mlx_new_image(data->mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT);
-    // data->img.addr = mlx_get_data_addr(data->img.mlx_img, &data->img.bpp, &data->img.line_len, &data->img.endian);
-    // *my_data = data;
+        ft_strerror_exit("t_data failed");
+    data->mlx_ptr = NULL;
+    data->win_ptr = NULL;    
+    ft_init_img(data);
+    ft_init_coef(data);
+    ft_init_matrix(data);
+    *my_data = data;
 }
+
+static void    ft_init_img(t_data *_data)
+{
+    _data->img.mlx_img = NULL;
+    _data->img.addr = NULL;
+    _data->img.bpp = 0;
+    _data->img.line_len = 0;
+    _data->img.endian = 0;
+}
+
+static void    ft_init_coef(t_data *_data)
+{
+    _data->coef.alpha = -1;
+    _data->coef.attitude = 0;
+    _data->coef.beta = -1;
+    _data->coef.grid = 0;
+    _data->coef.proj_model = -1;
+    _data->coef.x_offset = -1;
+    _data->coef.y_offset = -1;
+}
+
+static void    ft_init_matrix(t_data *_data)
+{
+    _data->mtrx.colors = NULL;
+    _data->mtrx.matrix = NULL;
+    _data->mtrx.mtrx_height = 0;
+    _data->mtrx.mtrx_length = 0;
+    _data->mtrx.z_max = -2147483648;
+}
+
