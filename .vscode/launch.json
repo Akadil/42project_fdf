@@ -10,7 +10,7 @@
             "request": "launch",
             "program": "${workspaceFolder}/fdf",
             "preLaunchTask": "C/C++: gcc build active file",
-            "args": ["maps/elem.fdf"],
+            "args": ["maps/my.fdf"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],

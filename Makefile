@@ -1,8 +1,13 @@
 NAME			= fdf
 
-SRCS            = ft_init.c ft_main.c
+SRCS            =	utils/ft_init.c \
+					ft_main.c \
+					utils/ft_clean.c \
+					utils/ft_error.c \
+					prepare_data/ft_parse_matrix.c \
+					ft_prepare_data.c
 
-SRCS_DIR		= ./srcs
+SRCS_DIR		= ./______________srcs__________________
 BUILD_DIR       = ./.build
 INCLUDES_DIR	= ./headers
 
@@ -20,7 +25,7 @@ ${NAME}         	: ${OBJS}
 			${CC} $(OBJS) -o $(NAME) -Lmlx_linux -lmlx_Linux -L/usr/lib -lXext -lX11 -lm -lz -Llibft -lft  
 
 ${BUILD_DIR}/%.o	:$(SRCS_DIR)/%.c
-			${CC} ${CFLAGS} -g $(HFLAGS) -I/usr/include -O3 -c $< -o $@ 
+			${CC} -g $(HFLAGS) ${CFLAGS} -O3 -c $< -o $@ 
 
 clean			:
 			rm -rf ${OBJS}
