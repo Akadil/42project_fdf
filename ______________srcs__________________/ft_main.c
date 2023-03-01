@@ -6,7 +6,7 @@
 /*   By: akalimol <akalimol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 11:56:54 by akalimol          #+#    #+#             */
-/*   Updated: 2023/03/01 14:30:23 by akalimol         ###   ########.fr       */
+/*   Updated: 2023/03/01 15:09:15 by akalimol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,10 @@ int main(int argc, char **argv)
     ft_init(&my_data);
     ft_prepare_data(argc, argv, my_data);
     
-	/* MLX part */
-
-	// mlx_loop_hook(my_data->mlx_ptr, &render, &my_data);
+	mlx_loop_hook(my_data->mlx_ptr, &ft_render, &my_data);
 	// mlx_hook(my_data->win_ptr, KeyPress, KeyPressMask, &handle_keypress, &my_data);
-	// mlx_loop(my_data->mlx_ptr);
+	mlx_loop(my_data->mlx_ptr);
 	
-	/* MLX part */
-
 	ft_print(my_data, argv);
     ft_clean(my_data);
     return (0);

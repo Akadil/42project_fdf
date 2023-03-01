@@ -15,6 +15,7 @@
                 "${workspaceFolder}/______________srcs__________________/*.c",
                 "${workspaceFolder}/______________srcs__________________/utils/*.c",
                 "${workspaceFolder}/______________srcs__________________/prepare_data/*.c",
+                "${workspaceFolder}/______________srcs__________________/rendering/*.c",
                 "-o",
                 "${workspaceFolder}/fdf",
                 "-Llibft",
