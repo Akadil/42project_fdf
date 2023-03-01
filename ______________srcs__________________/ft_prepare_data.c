@@ -6,12 +6,11 @@
 /*   By: akalimol <akalimol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 14:57:03 by akalimol          #+#    #+#             */
-/*   Updated: 2023/02/27 21:11:08 by akalimol         ###   ########.fr       */
+/*   Updated: 2023/03/01 14:09:50 by akalimol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_prepare_data.h"
-
 
 void	ft_prepare_data(int argc, char **argv, t_data *data)
 {
@@ -22,7 +21,7 @@ void	ft_prepare_data(int argc, char **argv, t_data *data)
 	data->img.mlx_img = my_mlx_new_image(data);
 	data->img.addr = my_mlx_get_data_addr(data);
 	ft_parse_matrix(data, argv);
-	//ft_set_coefficients(data);
+	ft_set_coefficients(data);
 }
 
 static void	*my_mlx_init(t_data *data)

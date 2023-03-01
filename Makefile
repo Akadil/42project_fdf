@@ -5,6 +5,7 @@ SRCS            =	utils/ft_init.c \
 					utils/ft_clean.c \
 					utils/ft_error.c \
 					prepare_data/ft_parse_matrix.c \
+					prepare_data/ft_set_coefficients.c \
 					ft_prepare_data.c
 
 SRCS_DIR		= ./______________srcs__________________

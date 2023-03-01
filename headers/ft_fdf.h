@@ -6,7 +6,7 @@
 /*   By: akalimol <akalimol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 11:58:32 by akalimol          #+#    #+#             */
-/*   Updated: 2023/02/28 13:49:00 by akalimol         ###   ########.fr       */
+/*   Updated: 2023/03/01 14:27:59 by akalimol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define FT_FDF_H
 
 # include "ft_data.h"
+# include "ft_clean.h"
+# include "ft_mlx.h"
 # include <stdio.h>
 
 void    ft_init(t_data **data);

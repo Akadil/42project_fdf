@@ -6,30 +6,36 @@
 /*   By: akalimol <akalimol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 11:56:54 by akalimol          #+#    #+#             */
-/*   Updated: 2023/03/01 11:39:13 by akalimol         ###   ########.fr       */
+/*   Updated: 2023/03/01 14:30:23 by akalimol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fdf.h"
-#include "ft_clean.h"
 
-void ft_print(t_data *data)
+void ft_print(t_data *data, char **argv)
 {
     int i;
     int j;
 
     i = 0;
+    printf("The map - %s\n\n", argv[1]);
+    printf("Height: %d, Width: %d\n", data->mtrx.mtrx_height, data->mtrx.mtrx_length);
     while (i < data->mtrx.mtrx_height)
     {
         j = 0;
         while (j < data->mtrx.mtrx_length)
         {
-            printf("%d,%d ", data->mtrx.matrix[i][j], data->mtrx.colors[i][j]);
+            printf("%d ", data->mtrx.matrix[i][j]);
             j++;
         }
         printf("\n");
         i++;
     }
+    printf("\n");
+    printf("Angles: alpha %d, beta %d\n", data->coef.alpha, data->coef.beta);
+    printf("Coefficients: grid %d, att %d\n", data->coef.grid, data->coef.attitude);
+    printf("Offsets: x %d, y %d\n", data->coef.x_offset, data->coef.y_offset);
+    printf("\n");
 }
 
 int main(int argc, char **argv)
@@ -39,7 +45,16 @@ int main(int argc, char **argv)
     my_data = NULL;
     ft_init(&my_data);
     ft_prepare_data(argc, argv, my_data);
-    ft_print(my_data);
+    
+	/* MLX part */
+
+	// mlx_loop_hook(my_data->mlx_ptr, &render, &my_data);
+	// mlx_hook(my_data->win_ptr, KeyPress, KeyPressMask, &handle_keypress, &my_data);
+	// mlx_loop(my_data->mlx_ptr);
+	
+	/* MLX part */
+
+	ft_print(my_data, argv);
     ft_clean(my_data);
     return (0);
 }
