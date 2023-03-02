@@ -6,7 +6,7 @@
 /*   By: akalimol <akalimol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 14:52:47 by akalimol          #+#    #+#             */
-/*   Updated: 2023/03/01 15:00:26 by akalimol         ###   ########.fr       */
+/*   Updated: 2023/03/02 20:34:33 by akalimol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 # include "ft_data.h"
 # include <stdio.h>
 
-void	ft_img_pix_put(t_data *data, int x, int y, int color);
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void	ft_render_background(t_data *data, int color);
+void	ft_render_projection(t_data *data);
 
 #endif

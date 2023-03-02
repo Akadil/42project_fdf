@@ -6,7 +6,11 @@ SRCS            =	utils/ft_init.c \
 					utils/ft_error.c \
 					prepare_data/ft_parse_matrix.c \
 					prepare_data/ft_set_coefficients.c \
-					ft_prepare_data.c
+					prepare_data/ft_set_colors.c \
+					ft_prepare_data.c \
+					rendering/ft_put_pixel.c \
+					rendering/ft_render_projection.c \
+					ft_render.c
 
 SRCS_DIR		= ./______________srcs__________________
 BUILD_DIR       = ./.build

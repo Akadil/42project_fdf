@@ -6,7 +6,7 @@
 /*   By: akalimol <akalimol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 14:32:01 by akalimol          #+#    #+#             */
-/*   Updated: 2023/03/01 15:08:55 by akalimol         ###   ########.fr       */
+/*   Updated: 2023/03/02 20:34:45 by akalimol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ft_render_background(t_data *data, int color)
 		j = 0;
 		while (j < WINDOW_WIDTH)
 		{
-			ft_img_pix_put(data, j, i, color);
+			my_mlx_pixel_put(data, j, i, color);
 			j++;
 		}
 		i++;
