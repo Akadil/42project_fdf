@@ -6,13 +6,18 @@
 /*   By: akalimol <akalimol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 19:51:08 by akalimol          #+#    #+#             */
-/*   Updated: 2023/03/02 21:52:00 by akalimol         ###   ########.fr       */
+/*   Updated: 2023/03/03 13:06:51 by akalimol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_data.h"
 
 static void    ft_find_z_extrimas(t_data *data, int z[2]);
+
+int	create_rgb(int r, int g, int b)
+{
+	return (r << 16 | g << 8 | b);
+}
 
 void    ft_set_colors(t_data *data)
 {
@@ -30,18 +35,24 @@ void    ft_set_colors(t_data *data)
         j = 0;
         while (j < data->mtrx.mtrx_length)
         {
-            if (data->mtrx.colors[i][j] != -1)
+            if (data->mtrx.colors[i][j] == -1 && z[1] == z[0])
+                data->mtrx.colors[i][j] = z[0];
+            else if (data->mtrx.colors[i][j] == -1)
             {
                 container = (data->mtrx.matrix[i][j] - z[0]);
                 container /= z[1] - z[0];
                 container *= 255;
-                data->mtrx.colors[i][j] = (int)container;
+                if (data->coef.color % 3 == 0)
+                    data->mtrx.colors[i][j] = create_rgb(255, 255, 255 - (int)container);
+                if (data->coef.color % 3 == 1)
+                    data->mtrx.colors[i][j] = create_rgb(255, 255 - (int)container, 255);
+                if (data->coef.color % 3 == 2)
+                    data->mtrx.colors[i][j] = create_rgb(255 - (int)container, 255, 255);
             }
             j++;
         }
         i++;
     }
-    
 }
 
 static void    ft_find_z_extrimas(t_data *data, int z[2])

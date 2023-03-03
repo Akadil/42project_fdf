@@ -6,7 +6,7 @@
 /*   By: akalimol <akalimol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 12:01:21 by akalimol          #+#    #+#             */
-/*   Updated: 2023/02/27 20:12:51 by akalimol         ###   ########.fr       */
+/*   Updated: 2023/03/03 13:05:52 by akalimol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ static void    ft_init_coef(t_data *_data)
     _data->coef.proj_model = -1;
     _data->coef.x_offset = -1;
     _data->coef.y_offset = -1;
+    _data->coef.color = 1;
 }
 
 static void    ft_init_matrix(t_data *_data)

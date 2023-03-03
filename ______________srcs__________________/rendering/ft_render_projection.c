@@ -6,7 +6,7 @@
 /*   By: akalimol <akalimol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:09:52 by akalimol          #+#    #+#             */
-/*   Updated: 2023/03/02 21:44:52 by akalimol         ###   ########.fr       */
+/*   Updated: 2023/03/03 11:41:51 by akalimol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,20 +36,18 @@ int	ft_compare(int a, int b)
 	return (-1);
 }
 
-int	create_rgb(int r, int g, int b)
-{
-	return (r << 16 | g << 8 | b);
-}
-
+// Improve if colors are the same
 int	ft_color(int x0, int x1, int x, int colors[2])
 {
 	float	z;
 
+	if (colors[0] == colors[1])
+		return (colors[0]);
 	z = x - x0;
 	z /= x1 - x0;
 	z *= colors[1] - colors[0];
 	z += colors[0];
-	return (create_rgb(255, 255, 255 - (int)z));
+	return (z);
 }
 
 void	ft_draw_line(t_data *data, int p0[2], int p1[2], int colors[2])

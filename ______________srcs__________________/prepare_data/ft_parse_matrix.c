@@ -6,7 +6,7 @@
 /*   By: akalimol <akalimol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 19:35:30 by akalimol          #+#    #+#             */
-/*   Updated: 2023/03/01 11:14:13 by akalimol         ###   ########.fr       */
+/*   Updated: 2023/03/03 13:24:42 by akalimol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,30 @@ void	ft_close_error(t_data *trash, char *str, int fd)
 	ft_strerror_clean_exit(trash, str);
 }
 
+int hex_to_decimal(char* hex_string) 
+{
+    int decimal_value;
+    int i;
+    int digit_value;
+    char    c;
+
+    decimal_value = 0;
+    i = 0;
+    while (hex_string[i] != '\0')
+    {
+        c = hex_string[i];
+        if (c >= '0' && c <= '9')
+            digit_value = c - '0';
+        else if (c >= 'A' && c <= 'F')
+            digit_value = c - 'A' + 10;
+        else if (c >= 'a' && c <= 'f')
+            digit_value = c - 'a' + 10;
+        decimal_value = decimal_value * 16 + digit_value;
+        i++;
+    }
+    return decimal_value;
+}
+
 /*  ! Consider Maria's case !   */
 /*	! Do I need to ft_calloc this matrix elements? !	*/
 void    ft_fill_matrix(t_data *data, t_list *head, int fd)
@@ -103,7 +127,7 @@ void    ft_fill_matrix(t_data *data, t_list *head, int fd)
         {
             data->mtrx.matrix[i][j] = ft_atoi(line[j]);
             if (ft_strchr(line[j], ','))
-                data->mtrx.colors[i][j] = ft_atoi(ft_strchr(line[j], ',') + 1);
+                data->mtrx.colors[i][j] = hex_to_decimal(ft_strchr(line[j], ',') + 1);
             else
                 data->mtrx.colors[i][j] = -1;
         }

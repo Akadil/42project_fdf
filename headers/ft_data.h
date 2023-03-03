@@ -6,7 +6,7 @@
 /*   By: akalimol <akalimol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 11:57:14 by akalimol          #+#    #+#             */
-/*   Updated: 2023/03/02 20:36:53 by akalimol         ###   ########.fr       */
+/*   Updated: 2023/03/03 13:05:21 by akalimol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct s_coef
 	int			x_offset;
 	int			y_offset;
 	int			proj_model;
+	int			color;
 }				t_coef;
 
 typedef struct s_matrix

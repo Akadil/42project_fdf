@@ -6,7 +6,7 @@
 /*   By: akalimol <akalimol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 16:24:15 by akalimol          #+#    #+#             */
-/*   Updated: 2023/03/02 21:43:54 by akalimol         ###   ########.fr       */
+/*   Updated: 2023/03/03 13:45:52 by akalimol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@
 static int ft_find_attitude(t_data *my_data);
 static int ft_find_grid(t_data *my_data);
 
+// What if we set the offsets at the end? after we know each of the datas?
 void ft_set_coefficients(t_data *my_data)
 {
-    my_data->coef.alpha = 30;
-    my_data->coef.beta = 20;
+    my_data->coef.alpha = 40;
+    my_data->coef.beta = 60;
     my_data->coef.x_offset = WINDOW_WIDTH / 4;
     my_data->coef.y_offset = WINDOW_HEIGHT / 4;
     my_data->coef.proj_model = 1;
@@ -35,23 +36,25 @@ static int ft_find_grid(t_data *my_data)
     max = my_data->mtrx.mtrx_height;
     if (max < my_data->mtrx.mtrx_length)
         max = my_data->mtrx.mtrx_length;
-    returner = WINDOW_WIDTH / 2 / max / 2;
+    returner = WINDOW_WIDTH / 2 / max;
     while (returner < 2 && my_data->coef.x_offset > 120)
     {
         my_data->coef.x_offset = my_data->coef.x_offset / 2;
-        returner = (WINDOW_WIDTH - my_data->coef.x_offset * 2) / max / 2;
+        returner = (WINDOW_WIDTH - my_data->coef.x_offset * 2) / max;
     }
     return (returner);
 }
 
 static int ft_find_attitude(t_data *my_data)
 {
-    float returner;
-    float z_max;
+    float   returner;
+    float   z_max;
+    float   z_min;
     int i;
     int j;
     
-    z_max = -2147483647.0;
+    z_min = 2147483647.0;
+    z_max = -2147483648.0;
     i = 0;
     while (i < my_data->mtrx.mtrx_height)
     {
@@ -60,15 +63,17 @@ static int ft_find_attitude(t_data *my_data)
         {
             if (my_data->mtrx.matrix[i][j] > z_max)
                 z_max = my_data->mtrx.matrix[i][j];
+            if (my_data->mtrx.matrix[i][j] < z_min)
+                z_min = my_data->mtrx.matrix[i][j]; 
             j++;
         }
         i++;
     }
-    returner = WINDOW_HEIGHT / 2 / z_max / 2;
+    returner = WINDOW_HEIGHT / 2 / (z_max - z_min);
     while (returner < 2 && my_data->coef.y_offset > 70)
     {
         my_data->coef.y_offset = my_data->coef.y_offset / 2;
-        returner = (WINDOW_HEIGHT - my_data->coef.y_offset * 2) / z_max / 2;
+        returner = (WINDOW_HEIGHT - my_data->coef.y_offset * 2) / (z_max - z_min);
     }
     return (returner);
 }
