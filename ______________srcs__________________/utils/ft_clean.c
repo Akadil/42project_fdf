@@ -6,7 +6,7 @@
 /*   By: akalimol <akalimol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 16:20:49 by akalimol          #+#    #+#             */
-/*   Updated: 2023/03/01 11:34:30 by akalimol         ###   ########.fr       */
+/*   Updated: 2023/03/11 17:55:37 by akalimol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,21 @@
             1. I have to know the proper size of matrix, so I have to set the
                 size after I allocate the memory. 
 */
-static void    ft_clean_darray(int **array_trash, int num_row)
+static void    ft_clean_darray(t_data *trash)
 {
     int i;
 
     i = 0;
-    if (array_trash)
+    if (!trash)
+        return ;
+    if (trash->mtrx.node)
     {
-        while (i < num_row && array_trash[i])
+        while (i < trash->mtrx.height && trash->mtrx.node[i])
         {
-            free (array_trash[i]);
+            free (trash->mtrx.node[i]);
             i++;
         }
-        free (array_trash);
+        free (trash->mtrx.node);
     }
 }
 
@@ -46,7 +48,6 @@ void    ft_clean(t_data *trash)
         mlx_destroy_display(trash->mlx_ptr);
         free (trash->mlx_ptr);
     }
-    ft_clean_darray(trash->mtrx.matrix, trash->mtrx.mtrx_height);
-    ft_clean_darray(trash->mtrx.colors, trash->mtrx.mtrx_height);
+    ft_clean_darray(trash);
     free (trash);
 }

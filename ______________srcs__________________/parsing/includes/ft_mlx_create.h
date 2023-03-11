@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_main.h                                          :+:      :+:    :+:   */
+/*   ft_mlx_create.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akalimol <akalimol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/24 11:58:32 by akalimol          #+#    #+#             */
-/*   Updated: 2023/03/11 17:57:04 by akalimol         ###   ########.fr       */
+/*   Created: 2023/03/07 15:05:37 by akalimol          #+#    #+#             */
+/*   Updated: 2023/03/11 19:00:19 by akalimol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_MAIN_H
-# define FT_MAIN_H
+#ifndef FT_MLX_CREATE_H
+# define FT_MLX_CREATE_H
 
 # include "ft_data.h"
-# include "ft_clean.h"
 # include "ft_mlx.h"
+# include "ft_error.h"
 # include <stdio.h>
 
-void    ft_init(t_data **data);
-void    ft_parsing(int argc, char **argv, t_data *my_data);
-int     ft_render(t_data *data);
-void    ft_set_colors(t_data *data);
+static void	*my_mlx_init(t_data *data);
+static void	*my_mlx_new_window(t_data *data, char *name);
+static void	*my_mlx_new_image(t_data *data);
+static char	*my_mlx_get_data_addr(t_data *data);
 
 #endif

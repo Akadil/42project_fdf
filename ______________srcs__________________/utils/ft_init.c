@@ -6,7 +6,7 @@
 /*   By: akalimol <akalimol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 12:01:21 by akalimol          #+#    #+#             */
-/*   Updated: 2023/03/03 13:05:52 by akalimol         ###   ########.fr       */
+/*   Updated: 2023/03/11 18:00:40 by akalimol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,22 +38,22 @@ static void    ft_init_img(t_data *_data)
 
 static void    ft_init_coef(t_data *_data)
 {
-    _data->coef.alpha = -1;
-    _data->coef.attitude = 0;
-    _data->coef.beta = -1;
-    _data->coef.grid = 0;
-    _data->coef.proj_model = -1;
-    _data->coef.x_offset = -1;
-    _data->coef.y_offset = -1;
-    _data->coef.color = 1;
+    _data->param.alpha = -1;
+    _data->param.attitude = 0;
+    _data->param.beta = -1;
+    _data->param.grid = 0;
+    _data->param.proj_model = -1;
+    _data->param.x_offset = -1;
+    _data->param.y_offset = -1;
+    _data->param.color = 1;
 }
 
 static void    ft_init_matrix(t_data *_data)
 {
-    _data->mtrx.colors = NULL;
-    _data->mtrx.matrix = NULL;
-    _data->mtrx.mtrx_height = 0;
-    _data->mtrx.mtrx_length = 0;
+    _data->mtrx.node = NULL;
+    _data->mtrx.height = 0;
+    _data->mtrx.width = 0;
     _data->mtrx.z_max = -2147483648;
+    _data->mtrx.z_min = 2147483647;
 }
 

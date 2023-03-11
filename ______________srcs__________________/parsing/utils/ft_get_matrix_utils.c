@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parsing_mlx_create.h                            :+:      :+:    :+:   */
+/*   ft_get_matrix_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akalimol <akalimol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/07 15:05:37 by akalimol          #+#    #+#             */
-/*   Updated: 2023/03/07 15:07:26 by akalimol         ###   ########.fr       */
+/*   Created: 2023/03/11 19:05:51 by akalimol          #+#    #+#             */
+/*   Updated: 2023/03/11 19:17:29 by akalimol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PARSING_MLX_CREATE_H
-# define FT_PARSING_MLX_CREATE_H
+#include <fcntl.h>
+#include "ft_data.h"
+#include "ft_error.h"
 
-# include "ft_data.h"
-# include "ft_mlx.h"
-# include <stdio.h>
+int    my_open(t_data *_my_data, char **_argv)
+{
+    int fd;
 
-static void	*my_mlx_init(t_data *data);
-static void	*my_mlx_new_window(t_data *data, char *name);
-static void	*my_mlx_new_image(t_data *data);
-static char	*my_mlx_get_data_addr(t_data *data);
-
-#endif
+    fd = open(_argv[1], O_RDONLY);
+    if (fd == -1)
+        ft_perror_clean_exit(_my_data, _argv[1]);
+    return (fd);
+}
