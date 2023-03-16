@@ -6,13 +6,14 @@
 /*   By: akalimol <akalimol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 19:11:50 by akalimol          #+#    #+#             */
-/*   Updated: 2023/03/11 19:29:24 by akalimol         ###   ########.fr       */
+/*   Updated: 2023/03/11 20:44:24 by akalimol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "ft_data.h"
 #include "ft_libft.h"
+#include "ft_error.h"
 
 void	ft_close_clear_serror(t_data *_data, t_list *_head, int _fd)
 {

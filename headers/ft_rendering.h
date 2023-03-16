@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_main.h                                          :+:      :+:    :+:   */
+/*   ft_render.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akalimol <akalimol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/24 11:58:32 by akalimol          #+#    #+#             */
-/*   Updated: 2023/03/13 11:33:47 by akalimol         ###   ########.fr       */
+/*   Created: 2023/03/01 14:52:47 by akalimol          #+#    #+#             */
+/*   Updated: 2023/03/13 11:40:07 by akalimol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_MAIN_H
-# define FT_MAIN_H
+#ifndef FT_RENDER_H
+# define FT_RENDER_H
 
-# include "ft_data.h"
-# include "ft_clean.h"
-# include "ft_mlx.h"
 # include <stdio.h>
+# include "ft_data.h"
+# include "ft_error.h"
+# include "ft_mlx.h"
 
-void    ft_init(t_data **data);
-void    ft_parsing(int argc, char **argv, t_data *my_data);
-int     ft_rendering(t_data *data);
-void    ft_set_colors(t_data *data);
+void	ft_render_background(t_data *data, int color);
+void	ft_render_projection(t_data *data);
 
 #endif

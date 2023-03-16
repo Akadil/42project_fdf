@@ -1,40 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parsing_utils.c                                 :+:      :+:    :+:   */
+/*   ft_gm_fill_matrix_utils.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akalimol <akalimol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/07 15:14:50 by akalimol          #+#    #+#             */
-/*   Updated: 2023/03/11 19:05:57 by akalimol         ###   ########.fr       */
+/*   Created: 2023/03/11 20:23:38 by akalimol          #+#    #+#             */
+/*   Updated: 2023/03/16 11:49:50 by akalimol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "ft_data.h"
 #include "ft_libft.h"
 #include "ft_error.h"
-#include <fcntl.h>
 
 void	ft_find_width(t_data *data, t_list *rows)
 {
     char	*line;
     int		width;
     int		i;
+    int     prev;
 
     i = 0;
     width = 0;
+    prev = 1;
     line = rows->content;
     while (line[i])
     {
-		if (line[i] == ' ')
+		if (line[i] == ' ' && prev == 0)
+        {
 			width++;
+            prev = 1;
+        }
+        else if (line[i] != ' ' )
+            prev = 0;
         i++;
     }
 	width++;
 	data->mtrx.width = width;
 }
 
-int	hex_to_decimal(char* hex_string) 
+int	hex_to_dec(char* hex_string) 
 {
     int decimal_value;
     int i;
@@ -58,8 +65,6 @@ int	hex_to_decimal(char* hex_string)
     return decimal_value;
 }
 
-
-
 void	ft_close_free_serror(t_data *trash, t_list *head, char *str, int fd)
 {
 	close (fd);
@@ -78,4 +83,12 @@ void	ft_free_d_array_char(char **trash)
 		i++;
 	}
 	free (trash);
+}
+
+void    ft_set_z_maximas(t_data *data, int i, int j)
+{
+    if (data->mtrx.node[i][j].z > data->mtrx.z_max)
+        data->mtrx.z_max = data->mtrx.node[i][j].z;
+    if (data->mtrx.node[i][j].z < data->mtrx.z_min)
+        data->mtrx.z_min = data->mtrx.node[i][j].z;
 }

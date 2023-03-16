@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_main.h                                          :+:      :+:    :+:   */
+/*   ft_draw_line.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akalimol <akalimol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/24 11:58:32 by akalimol          #+#    #+#             */
-/*   Updated: 2023/03/13 11:33:47 by akalimol         ###   ########.fr       */
+/*   Created: 2023/03/13 20:39:26 by akalimol          #+#    #+#             */
+/*   Updated: 2023/03/14 21:02:24 by akalimol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_MAIN_H
-# define FT_MAIN_H
+#ifndef FT_DRAW_LINE_H
+# define FT_DRAW_LINE_H
 
 # include "ft_data.h"
-# include "ft_clean.h"
-# include "ft_mlx.h"
-# include <stdio.h>
+# include "ft_point.h"
 
-void    ft_init(t_data **data);
-void    ft_parsing(int argc, char **argv, t_data *my_data);
-int     ft_rendering(t_data *data);
-void    ft_set_colors(t_data *data);
+void	bresenhams(t_data *data, t_point p1, t_point p2);
+int		ft_abs(int a, int b);
+int		ft_slope(int a, int b);
+void	ft_pixel(t_data *data, int x, int y, int color);
+void	ft_set_colors(t_data *data, t_point *p1, t_point *p2);
+int		ft_color(t_point p1, t_point p2, t_point p);
 
 #endif

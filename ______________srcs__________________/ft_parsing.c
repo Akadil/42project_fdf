@@ -6,7 +6,7 @@
 /*   By: akalimol <akalimol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 14:57:03 by akalimol          #+#    #+#             */
-/*   Updated: 2023/03/11 18:51:29 by akalimol         ###   ########.fr       */
+/*   Updated: 2023/03/16 11:54:25 by akalimol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ void	ft_parsing(int argc, char **argv, t_data *data)
 		ft_merror_clean_exit(data, "Wrong arguments", NULL);
 	ft_mlx_create(data);
 	ft_get_matrix(data, argv);
-	ft_set_coefficients(data);
+	ft_set_params(data);
 	//ft_set_colors(data);
 }

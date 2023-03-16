@@ -3,7 +3,6 @@
         {
             "name": "Linux",
             "includePath": [
-                //"${workspaceFolder}/**",
                 "${workspaceFolder}/headers",
                 "${workspaceFolder}/libft/includes"
             ],

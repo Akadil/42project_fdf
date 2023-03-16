@@ -6,11 +6,13 @@
 /*   By: akalimol <akalimol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 18:52:17 by akalimol          #+#    #+#             */
-/*   Updated: 2023/03/11 18:58:34 by akalimol         ###   ########.fr       */
+/*   Updated: 2023/03/11 20:43:34 by akalimol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_data.h"
+#include "ft_mlx.h"
+#include "ft_error.h"
 #include <stdio.h>
 
 void	*my_mlx_init(t_data *data)

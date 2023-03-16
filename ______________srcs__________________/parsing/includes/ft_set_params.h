@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_render.h                                        :+:      :+:    :+:   */
+/*   ft_set_params.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akalimol <akalimol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/01 14:52:47 by akalimol          #+#    #+#             */
-/*   Updated: 2023/03/02 20:34:33 by akalimol         ###   ########.fr       */
+/*   Created: 2023/03/16 11:55:27 by akalimol          #+#    #+#             */
+/*   Updated: 2023/03/16 11:56:28 by akalimol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_RENDER_H
-# define FT_RENDER_H
+#ifndef FT_SET_PARAMS_H
+# define FT_SET_PARAMS_H
 
-# include "ft_mlx.h"
 # include "ft_data.h"
-# include <stdio.h>
+# include <math.h>
 
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
-void	ft_render_background(t_data *data, int color);
-void	ft_render_projection(t_data *data);
+int ft_find_attitude(t_data *my_data);
+int ft_find_grid(t_data *my_data);
 
 #endif

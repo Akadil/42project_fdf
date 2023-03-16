@@ -6,7 +6,7 @@
 /*   By: akalimol <akalimol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 11:56:54 by akalimol          #+#    #+#             */
-/*   Updated: 2023/03/11 17:52:52 by akalimol         ###   ########.fr       */
+/*   Updated: 2023/03/14 17:31:58 by akalimol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,74 +40,81 @@
 //     printf("\n");
 // }
 
-// int	handle_keypress(int keysym, t_data *data)
-// {
-// 	if (keysym == XK_Escape)
-// 	{
-// 		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
-// 		data->win_ptr = NULL;
-// 	}
-// 	if (keysym == 'a')
-// 	{
-// 		if (data->coef.beta == 359)
-// 			data->coef.beta = 0;
-// 		else
-// 			data->coef.beta += 1;
-// 	}
-//     if (keysym == 'd')
-// 	{
-// 		if (data->coef.beta == 0)
-// 			data->coef.beta = 359;
-// 		else
-// 			data->coef.beta -= 1;
-// 	}
-//     if (keysym == 'w')
-// 	{
-// 		data->coef.alpha -= 1;
-// 	}
-//     if (keysym == 's')
-// 	{
-// 		data->coef.alpha += 1;
-// 	}
-//     if (keysym == 'u')
-// 	{
-// 		data->coef.x_offset += 10;
-// 	}
-//     if (keysym == 'j')
-// 	{
-// 		data->coef.x_offset -= 10;
-// 	}
-//     if (keysym == 'k')
-// 	{
-// 		data->coef.y_offset -= 10;
-// 	}
-//     if (keysym == 'h')
-// 	{
-// 		data->coef.y_offset += 10;
-// 	}
-//     if (keysym == XK_space)
-//     {
-//         data->coef.color += 1;
-// 		ft_set_colors(data);
-//     }
-//     if (keysym == XK_equal)
-// 	{
-// 		data->coef.grid += 2;
-// 	}
-//     if (keysym == XK_minus)
-//     {
-//         data->coef.grid -= 2;
-//     }
-//     if (keysym == 'x')
-// 	{
-// 		data->coef.attitude += 2;
-// 	}
-//     if (keysym == 'z')
-//     {
-//         data->coef.attitude -= 2;
-//     }
-// 	return (0);
-// }
+int	handle_keypress(int keysym, t_data *data)
+{
+	if (keysym == XK_Escape)
+	{
+		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+		data->win_ptr = NULL;
+	}
+	if (keysym == 'a')
+	{
+		if (data->param.beta == 359)
+			data->param.beta = 0;
+		else
+			data->param.beta += 5;
+	}
+    if (keysym == 'd')
+	{
+		if (data->param.beta == 0)
+			data->param.beta = 359;
+		else
+			data->param.beta -= 5;
+	}
+    if (keysym == 'w')
+	{
+		data->param.alpha -= 5;
+	}
+    if (keysym == 's')
+	{
+		data->param.alpha += 5;
+	}
+    if (keysym == 'q')
+	{
+		data->param.theta -= 5;
+	}
+    if (keysym == 'e')
+	{
+		data->param.theta += 5;
+	}
+    if (keysym == 'u')
+	{
+		data->param.x_offset += 10;
+	}
+    if (keysym == 'j')
+	{
+		data->param.x_offset -= 10;
+	}
+    if (keysym == 'k')
+	{
+		data->param.y_offset -= 10;
+	}
+    if (keysym == 'h')
+	{
+		data->param.y_offset += 10;
+	}
+    if (keysym == XK_space)
+    {
+        data->param.color += 1;
+    }
+    if (keysym == XK_equal)
+	{
+		data->param.grid += 2;
+	}
+    if (keysym == XK_minus)
+    {
+        data->param.grid -= 2;
+    }
+    if (keysym == 'x')
+	{
+		data->param.attitude += 2;
+	}
+    if (keysym == 'z')
+    {
+        data->param.attitude -= 2;
+    }
+	return (0);
+}
 
 int main(int argc, char **argv)
 {
@@ -118,10 +125,10 @@ int main(int argc, char **argv)
     ft_parsing(argc, argv, my_data);
     //ft_print(my_data, argv);
     
-    // ft_render(my_data);
-	// mlx_loop_hook(my_data->mlx_ptr, &ft_render, my_data);
-	// mlx_hook(my_data->win_ptr, KeyPress, KeyPressMask, &handle_keypress, my_data);
-	// mlx_loop(my_data->mlx_ptr);
+    // ft_rendering(my_data);
+	mlx_loop_hook(my_data->mlx_ptr, &ft_rendering, my_data);
+	mlx_hook(my_data->win_ptr, KeyPress, KeyPressMask, &handle_keypress, my_data);
+	mlx_loop(my_data->mlx_ptr);
 	
     ft_clean(my_data);
     return (0);

@@ -6,11 +6,11 @@
 /*   By: akalimol <akalimol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:58:08 by akalimol          #+#    #+#             */
-/*   Updated: 2023/03/11 18:58:59 by akalimol         ###   ########.fr       */
+/*   Updated: 2023/03/11 20:34:34 by akalimol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_parsing_mlx_create.h"
+#include "includes/ft_mlx_create.h"
 
 /*
 	Goal: Create the mlx instances
