@@ -6,7 +6,7 @@
 /*   By: akalimol <akalimol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 17:25:54 by akalimol          #+#    #+#             */
-/*   Updated: 2023/03/01 11:31:56 by akalimol         ###   ########.fr       */
+/*   Updated: 2023/03/16 17:03:51 by akalimol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 
 # include "ft_data.h"
 
-void    ft_clean(t_data *trash);
+void	ft_clean(t_data *trash);
 
 #endif

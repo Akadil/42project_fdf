@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_main.h                                          :+:      :+:    :+:   */
+/*   ft_get_matrix_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akalimol <akalimol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/24 11:58:32 by akalimol          #+#    #+#             */
-/*   Updated: 2023/03/16 20:19:20 by akalimol         ###   ########.fr       */
+/*   Created: 2023/03/11 19:05:51 by akalimol          #+#    #+#             */
+/*   Updated: 2023/03/16 16:13:40 by akalimol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_MAIN_H
-# define FT_MAIN_H
+#include "ft_data.h"
+#include "ft_error.h"
+#include <fcntl.h>
 
-# include <X11/X.h>
-# include <X11/keysym.h>
-# include <stdio.h>
-# include "ft_data.h"
-# include "ft_clean.h"
-# include "ft_mlx.h"
+int	my_open(t_data *_my_data, char **_argv)
+{
+	int	fd;
 
-void	ft_init(t_data **data);
-void	ft_parsing(int argc, char **argv, t_data *my_data);
-int		ft_rendering(t_data *data);
-int		ft_handle_keypress(int keysym, t_data *data);
-int		ft_handle_exit(t_data *data);
-
-#endif
+	fd = open(_argv[1], O_RDONLY);
+	if (fd == -1)
+		ft_perror_clean_exit(_my_data, _argv[1]);
+	return (fd);
+}

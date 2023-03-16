@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_main.h                                          :+:      :+:    :+:   */
+/*   ft_error_2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akalimol <akalimol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/24 11:58:32 by akalimol          #+#    #+#             */
-/*   Updated: 2023/03/16 20:19:20 by akalimol         ###   ########.fr       */
+/*   Created: 2023/03/16 16:10:08 by akalimol          #+#    #+#             */
+/*   Updated: 2023/03/16 16:12:47 by akalimol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_MAIN_H
-# define FT_MAIN_H
+#include "ft_clean.h"
+#include "ft_data.h"
+#include "ft_libft.h"
+#include <errno.h>
+#include <stdio.h>
+#include <string.h>
 
-# include <X11/X.h>
-# include <X11/keysym.h>
-# include <stdio.h>
-# include "ft_data.h"
-# include "ft_clean.h"
-# include "ft_mlx.h"
+void	ft_strerror(char *str)
+{
+	ft_printf_stderr("%s: %s\n", str, strerror(errno));
+}
 
-void	ft_init(t_data **data);
-void	ft_parsing(int argc, char **argv, t_data *my_data);
-int		ft_rendering(t_data *data);
-int		ft_handle_keypress(int keysym, t_data *data);
-int		ft_handle_exit(t_data *data);
+void	ft_strerror_exit(char *str)
+{
+	ft_strerror(str);
+	exit(-1);
+}
 
-#endif
+void	ft_strerror_clean_exit(t_data *trash, char *str)
+{
+	ft_clean(trash);
+	ft_strerror(str);
+	exit(-1);
+}

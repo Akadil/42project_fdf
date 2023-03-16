@@ -1,8 +1,11 @@
 NAME			= fdf
+LIBFT			= libft.a
+MLX				= libmlx_Linux.a
 
 SRCS            =	utils/ft_init.c \
 					utils/ft_clean.c \
-					utils/ft_error.c \
+					utils/ft_error_1.c \
+					utils/ft_error_2.c \
 					parsing/utils/ft_get_matrix_utils.c \
 					parsing/utils/ft_gm_fill_matrix_utils.c \
 					parsing/utils/ft_gm_get_rows_utils.c \
@@ -21,13 +24,17 @@ SRCS            =	utils/ft_init.c \
 					rendering/ft_render_background.c \
 					rendering/ft_render_projection.c \
 					rendering/ft_transform.c \
+					ft_handle_keypress.c \
+					ft_handle_exit.c \
 					ft_parsing.c \
 					ft_rendering.c \
 					ft_main.c \
 
-SRCS_DIR		= ./______________srcs__________________
+SRCS_DIR		= ./srcs
 BUILD_DIR       = ./.build
 INCLUDES_DIR	= ./headers
+LIBFT_DIR		= ./libft
+MLX_DIR			= ./mlx_linux
 
 OBJS			= $(addprefix $(BUILD_DIR)/, $(SRCS))
 OBJS			:= $(OBJS:%.c=%.o)
@@ -35,22 +42,30 @@ SRCS			:= $(addprefix $(SRCS_DIR)/, $(SRCS))
 
 CC				= cc
 CFLAGS          = -Wall -Werror -Wextra
-HFLAGS			= -I $(INCLUDES_DIR)
+HFLAGS			= -I $(INCLUDES_DIR) -I $(MLX_DIR)
 
-all					: ${NAME}
+all						: ${NAME}
 
-${NAME}         	: ${OBJS}
-			${CC} $(OBJS) -o $(NAME) -Lmlx_linux -lmlx_Linux -L/usr/lib -lXext -lX11 -lm -lz -Llibft -lft  
+${NAME}         		: ${OBJS}
+			${CC} -g $(OBJS) -o $(NAME) -Lmlx_linux -lmlx_Linux -L/usr/lib -lXext -lX11 -lm -lz -Llibft -lft  
 
-${BUILD_DIR}/%.o	:$(SRCS_DIR)/%.c
-			${CC} -g $(HFLAGS) ${CFLAGS} -O3 -c $< -o $@ 
+${BUILD_DIR}/%.o		: $(SRCS_DIR)/%.c $(LIBFT_DIR)/$(LIBFT) $(MLX_DIR)/$(MLX)
+			${CC} $(HFLAGS) ${CFLAGS} -O3 -c $< -o $@ 
 
-clean			:
+$(LIBFT_DIR)/$(LIBFT)	:
+			make -C $(LIBFT_DIR)
+
+$(MLX_DIR)/$(MLX)		:
+			make -C $(MLX_DIR)
+
+clean					:
+			make -C $(LIBFT_DIR) clean
+			make -C $(MLX_DIR) clean
 			rm -rf ${OBJS}
 
-fclean			: clean
-			rm -rf ${NAME}
+fclean					: clean
+			rm -rf ${NAME} $(LIBFT_DIR)/$(LIBFT) $(MLX_DIR)/$(MLX)
 
-re				: fclean all
+re						: fclean all
 
-.PHONY			: all clean fclean re
+.PHONY					: all clean fclean re

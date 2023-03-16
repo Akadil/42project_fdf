@@ -6,7 +6,7 @@
 /*   By: akalimol <akalimol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 11:57:14 by akalimol          #+#    #+#             */
-/*   Updated: 2023/03/14 18:11:09 by akalimol         ###   ########.fr       */
+/*   Updated: 2023/03/16 20:12:00 by akalimol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ typedef struct s_node
 {
 	float		x;
 	float		y;
-	int		z;
-	int		color;
-	int		x_p;
-	int		y_p;
-}			t_node;
+	int			z;
+	int			color;
+	int			x_p;
+	int			y_p;
+}				t_node;
 
 typedef struct s_matrix
 {

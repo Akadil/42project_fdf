@@ -4,7 +4,7 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/headers",
-                "${workspaceFolder}/libft/includes"
+                "${workspaceFolder}/mlx_linux"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/cc",

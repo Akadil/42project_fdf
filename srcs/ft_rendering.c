@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_main.h                                          :+:      :+:    :+:   */
+/*   ft_rendering.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akalimol <akalimol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/24 11:58:32 by akalimol          #+#    #+#             */
-/*   Updated: 2023/03/16 20:19:20 by akalimol         ###   ########.fr       */
+/*   Created: 2023/03/01 14:32:01 by akalimol          #+#    #+#             */
+/*   Updated: 2023/03/16 20:00:50 by akalimol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_MAIN_H
-# define FT_MAIN_H
+#include "ft_rendering.h"
 
-# include <X11/X.h>
-# include <X11/keysym.h>
-# include <stdio.h>
-# include "ft_data.h"
-# include "ft_clean.h"
-# include "ft_mlx.h"
-
-void	ft_init(t_data **data);
-void	ft_parsing(int argc, char **argv, t_data *my_data);
-int		ft_rendering(t_data *data);
-int		ft_handle_keypress(int keysym, t_data *data);
-int		ft_handle_exit(t_data *data);
-
-#endif
+int	ft_rendering(t_data *data)
+{
+	if (data->win_ptr == NULL)
+		return (1);
+	ft_render_background(data, 0);
+	ft_render_projection(data);
+	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.mlx_img, 0, \
+																			0);
+	return (0);
+}

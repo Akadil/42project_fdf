@@ -3,6 +3,7 @@
         "ft_libft.h": "c",
         "libft.h": "c",
         "ft_mlx_create.h": "c",
-        "ft_data.h": "c"
+        "ft_data.h": "c",
+        "ft_clean.h": "c"
     }
 }
