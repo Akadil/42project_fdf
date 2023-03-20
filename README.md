@@ -41,29 +41,29 @@ Structure
 Structure of the code
 
     .
-    ├── mlx_linux					# Graphic library
-    |── libft						# Previously saved function
+    ├── mlx_linux				# Graphic library
+    |── libft					# Previously saved function
     |── headers
     └── srcs
-        ├── main.c					# All big stages of the code  
+        ├── main.c				# All big stages of the code  
         ├── ft_parsing.c			# Parsing and preprocessing
-        |    └── parsing
-        |        ├── includes
-        |        ├── utils
-        |        └── *.c
+        |	└── parsing
+        |		├── includes
+        |		├── utils
+        |		└── *.c
         ├── ft_rendering.c			# functions to run the render
-        |    └── rendering
-        |        ├── includes
-        |        ├── utils
-        |        └── *.c
+        |	└── rendering
+        |		├── includes
+        |		├── utils
+        |		└── *.c
         ├── ft_handling.c			# Control the map
-        |    └── handling
-        |        ├── includes
-        |        ├── utils
-        |        └── *.c
-		└── utils
-			├── ft_clean.c			
-			└── ft_error.c
+        |	└── handling
+        |		├── includes
+        |		├── utils
+        |		└── *.c
+	└── utils
+		├── ft_clean.c			
+		└── ft_error.c
 
 <br> </br>
 
