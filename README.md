@@ -4,6 +4,9 @@
 
 <img src="./images/ezgif.com-video-to-gif.gif" alt="Alt text" title="Final product" style="display: inline-block; margin: 0 auto; max-width: 400px">
 
+<img src="./images/Screenshot from 2023-03-20 20-38-01.png" alt="Alt text" title="Final product" style="display: inline-block; margin: 0 auto; max-width: 400px"> 
+<img src="./images/Screenshot from 2023-03-20 20-38-13.png" alt="Alt text" title="Final product" style="display: inline-block; margin: 0 auto; max-width: 400px"> 
+
 # About the project
 ### End product:
 - Create controllable 2-d representation of 3-d object
@@ -32,10 +35,7 @@ make
 
 <br> </br>
 
-# Control the map
-
-I have 2 type of hooks: keybord and mouse \
-### Keyboard:
+# Keyboard:
 - `a and d` rotate through y axes
 - `w and s` rotate through x axes
 - `q and e` rotate through z axes
