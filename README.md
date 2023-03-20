@@ -24,12 +24,15 @@
 
 # Installation
 
+On Linux:
 ```
 make
 ./fdf maps/42.fdf
 ```
 
-## Handle hooks
+<br> </br>
+
+# Control the map
 
 I have 2 type of hooks: keybord and mouse \
 ### Keyboard:
