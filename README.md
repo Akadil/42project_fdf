@@ -61,7 +61,7 @@ Structure of the code
         |		├── includes
         |		├── utils
         |		└── *.c
-	  └── utils
+	└── utils
 		├── ft_clean.c			
 		└── ft_error.c
 
