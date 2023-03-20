@@ -6,11 +6,11 @@
 /*   By: akalimol <akalimol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:16:13 by akalimol          #+#    #+#             */
-/*   Updated: 2023/03/20 20:31:58 by akalimol         ###   ########.fr       */
+/*   Updated: 2023/03/20 20:56:06 by akalimol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_handle_keypress.h"
+#include "handling/includes/ft_handle_keypress.h"
 
 int	ft_handle_keypress(int keysym, t_data *data)
 {
