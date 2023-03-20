@@ -4,8 +4,8 @@
 
 <img src="./images/ezgif.com-video-to-gif.gif" alt="Alt text" title="Final product" style="display: inline-block; margin: 0 auto; max-width: 400px">
 
-<img src="./images/Screenshot from 2023-03-20 20-38-01.png" alt="Alt text" title="Final product" style="display: inline-block; margin: 0 auto; max-width: 400px"> 
-<img src="./images/Screenshot from 2023-03-20 20-38-13.png" alt="Alt text" title="Final product" style="display: inline-block; margin: 0 auto; max-width: 400px"> 
+<img src="./images/Screenshot from 2023-03-20 20-38-01.png" alt="Alt text" title="Final product" style="display: inline-block; margin: 0 auto; max-width: 200px"> 
+<img src="./images/Screenshot from 2023-03-20 20-38-13.png" alt="Alt text" title="Final product" style="display: inline-block; margin: 0 auto; max-width: 200px"> 
 
 # About the project
 ### End product:
