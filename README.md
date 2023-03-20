@@ -19,15 +19,15 @@ Table of contents
 About
 =====
 
-### End product:
+#### End product:
 - Create controllable 2-d representation of 3-d object
-### Features:
+#### Features:
 - Show the 3d object
 - Zoom in and out
 - Translate the model
 - Rotate the model
 - Add one more bonus (color change)
-### Requirements:
+#### Requirements:
 - We have to use the MiniLibx and math library
 - Take a map as an input
 - Use isometric projection for transforming 2d → 3d
