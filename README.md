@@ -9,8 +9,8 @@ Table of contents
 
 <!--ts-->
    * [About](#About)
-   * [Installation](#Installation)
    * [Structure](#Structure)
+   * [Installation](#Installation)
    * [Keyboard](#Keyboard)
    * [Result](#Results)
 
