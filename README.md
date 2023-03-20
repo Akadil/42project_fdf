@@ -2,12 +2,22 @@
 > The graphical project to represent a landscape as a 3D object \
 > Status: Finished
 
-<img src="./images/ezgif.com-video-to-gif.gif" alt="Alt text" title="Final product" style="display: inline-block; margin: 0 auto; max-width: 400px">
+<img src="./images/fdf_example1.png" alt="Alt text" title="Final product" style="display: inline-block; margin: 0 auto; max-width: 400px">
 
-<img src="./images/Screenshot from 2023-03-20 20-38-01.png" alt="Alt text" title="Final product" style="display: inline-block; margin: 0 auto; max-width: 200px"> 
-<img src="./images/Screenshot from 2023-03-20 20-38-13.png" alt="Alt text" title="Final product" style="display: inline-block; margin: 0 auto; max-width: 200px"> 
+Table of contents
+=================
 
-# About the project
+<!--ts-->
+   * [About](#About)
+   * [Installation](#Installation)
+   * [Keyboard](#Keyboard)
+   * [Result](#Results)
+
+<!--te-->
+
+About
+=====
+
 ### End product:
 - Create controllable 2-d representation of 3-d object
 ### Features:
@@ -25,7 +35,8 @@
 
 <br> </br>
 
-# Installation
+Installation
+============
 
 On Linux:
 ```
@@ -35,7 +46,9 @@ make
 
 <br> </br>
 
-# Keyboard:
+Keyboard:
+=========
+
 - `a and d` rotate through y axes
 - `w and s` rotate through x axes
 - `q and e` rotate through z axes
@@ -43,3 +56,13 @@ make
 - `+ and -` zoom in and out
 - `z and x` change the height of the map
 - `space` change the color
+
+<br> </br>
+
+Results
+=======
+
+<img src="./images/ezgif.com-video-to-gif.gif" alt="Alt text" title="Final product" style="display: inline-block; margin: 0 auto; max-width: 400px">
+
+<img src="./images/Screenshot from 2023-03-20 20-38-01.png" alt="Alt text" title="Final product" style="display: inline-block; margin: 0 auto; max-width: 100px"> 
+<img src="./images/Screenshot from 2023-03-20 20-38-13.png" alt="Alt text" title="Final product" style="display: inline-block; margin: 0 auto; max-width: 100px"> 
