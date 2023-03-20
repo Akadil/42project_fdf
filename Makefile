@@ -26,7 +26,7 @@ SRCS            =	utils/ft_init.c \
 					rendering/ft_transform.c \
 					handling/ft_exit_button.c \
 					handling/ft_keypress_utils.c \
-					ft_keypress.c \
+					ft_handling.c \
 					ft_parsing.c \
 					ft_rendering.c \
 					ft_main.c \

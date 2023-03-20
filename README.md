@@ -10,6 +10,7 @@ Table of contents
 <!--ts-->
    * [About](#About)
    * [Installation](#Installation)
+   * [Structure](#Structure)
    * [Keyboard](#Keyboard)
    * [Result](#Results)
 
@@ -32,6 +33,37 @@ About
 - Use isometric projection for transforming 2d → 3d
 - The management of the window must remain smooth
 - ESC and cross button
+
+<br> </br>
+
+Structure
+=====================
+Structure of the code
+
+    .
+    ├── mlx_linux					# Graphic library
+    |── libft						# Previously saved function
+    |── headers
+    └── srcs
+        ├── main.c					# All big stages of the code  
+        ├── ft_parsing.c			# Parsing and preprocessing
+        |    └── parsing
+        |        ├── includes
+        |        ├── utils
+        |        └── *.c
+        ├── ft_rendering.c			# functions to run the render
+        |    └── rendering
+        |        ├── includes
+        |        ├── utils
+        |        └── *.c
+        ├── ft_handling.c			# Control the map
+        |    └── handling
+        |        ├── includes
+        |        ├── utils
+        |        └── *.c
+		└── utils
+			├── ft_clean.c			
+			└── ft_error.c
 
 <br> </br>
 
@@ -69,3 +101,7 @@ Results
 <img src="./images/Screenshot from 2023-03-20 20-58-19.png" alt="Alt text" title="Final product" style="display: inline-block; margin: 0 auto; max-width: 100px">
 <img src="./images/Screenshot from 2023-03-20 20-59-19.png" alt="Alt text" title="Final product" style="display: inline-block; margin: 0 auto; max-width: 100px">
 <img src="./images/Screenshot from 2023-03-20 20-59-50.png" alt="Alt text" title="Final product" style="display: inline-block; margin: 0 auto; max-width: 100px">
+
+<br> </br>
+
+
