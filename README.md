@@ -8,10 +8,16 @@ Table of contents
 =================
 
 <!--ts-->
-   * [About](#About)
+   * [About the project](#About)
    * [Installation](#Installation)
-   * [Structure](#Structure)
-   * [Key_functions](#Key_functions)
+   * [Structure of the project](#Structure-of-the-project)
+   * [Code overview](#Code-overview)
+        * [General structure](#General-structure)
+        * [MLX management](#MLX-management)
+        * [3D to 2D transformation](#3d-to-2d-transformation)
+        * [Drawing a line](#Drawing-a-line)
+        * [Double level gradient color](#Double-level-gradient-colot)
+        * [Rotation Management](#Rotation-Management)
    * [Keyboard](#Keyboard)
    * [Result](#Results)
 
@@ -42,16 +48,16 @@ Installation
 ============
 
 Clone repository, then 
-```
-make
-./fdf maps/42.fdf
+```bash
+$ make
+$ ./fdf maps/42.fdf
 ```
 
 <br> </br>
 
-Structure
-=====================
 Structure of the code
+=====================
+
 
     .
     ├── mlx_linux				    # Graphic library
@@ -81,10 +87,11 @@ Structure of the code
 
 <br> </br>
 
-Key_functions
+Code Overview
 =============
 
-### General structure 
+General structure 
+-----------------
 ```
 ./headers/ft_data.h
 
@@ -117,7 +124,9 @@ typedef struct s_data
 }				t_data;     # General storage
 ```
 
-### MLX management
+MLX management
+--------------
+
 ```
 ./srcs/ft_main.c
 
@@ -139,7 +148,9 @@ int	main(int argc, char **argv)
 }
 ```
 
-### 3D to 2D transformation
+3D to 2D transformation
+-----------------------
+
 > ./srcs/rendering/ft_transform.c \
 > This code is the final representation of the multiplication of the 3 matrices \
 > (x, y, z) -> data->mtrx.node[i][j].x data->mtrx.node[i][j].y data->mtrx.node[i][j].z \
@@ -177,7 +188,9 @@ void	ft_transform(t_data *data, int i, int j)
 }
 ```
 
-### Drawing a line 
+Drawing a line 
+--------------
+
 > ./srcs/rendering/ft_draw_line.c
 
 ```
@@ -210,7 +223,9 @@ void	bresenhams(t_data *data, t_point p1, t_point p2)
 }
 ```
 
-### Setting the double level gradient color
+Setting the double level gradient color
+---------------------------------------
+
 > ./srcs/rendering/utils/ft_colors_utils.c \
 > t_point   - the structure with info about the given point \
 > num       - num (0, 255) to calculate the gradient    
@@ -247,7 +262,9 @@ void	ft_set_colors_sep(t_data *data, t_point *p1)
 }
 ```
 
-### Rotation management
+Rotation management
+-------------------
+
 > ./srcs/handling/ft_keypress_utils.c
 > In the hook, I change the parameter of the projection. Then in the \
 > loop_hook I draw the projection with given parameters
