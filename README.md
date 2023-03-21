@@ -330,13 +330,21 @@ Keyboard
 
 Results
 =======
-
+42 logo
 <img src="./images/ezgif.com-video-to-gif.gif" alt="Alt text" title="Final product" style="display: inline-block; margin: 0 auto; max-width: 400px">
 
+Mountain
 <img src="./images/Screenshot from 2023-03-20 20-38-01.png" alt="Alt text" title="Final product" style="display: inline-block; margin: 0 auto; max-width: 100px"> 
+
 <img src="./images/Screenshot from 2023-03-20 21-01-24.png" alt="Alt text" title="Final product" style="display: inline-block; margin: 0 auto; max-width: 100px">
+
+
 <img src="./images/Screenshot from 2023-03-20 20-58-19.png" alt="Alt text" title="Final product" style="display: inline-block; margin: 0 auto; max-width: 100px">
+
+Fractal design
 <img src="./images/Screenshot from 2023-03-20 20-59-19.png" alt="Alt text" title="Final product" style="display: inline-block; margin: 0 auto; max-width: 100px">
+
+Julia design
 <img src="./images/Screenshot from 2023-03-20 20-59-50.png" alt="Alt text" title="Final product" style="display: inline-block; margin: 0 auto; max-width: 100px">
 
 > <i>[Back to table of contents](#table-of-contents) or [back to top](../../)</i>
