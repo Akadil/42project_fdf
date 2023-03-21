@@ -57,8 +57,6 @@ $ ./fdf maps/42.fdf
 
 Structure of the code
 =====================
-
-
     .
     ├── mlx_linux				    # Graphic library
     |── libft					    # Previously saved function
@@ -151,10 +149,11 @@ int	main(int argc, char **argv)
 3D to 2D transformation
 -----------------------
 
-> ./srcs/rendering/ft_transform.c \
-> This code is the final representation of the multiplication of the 3 matrices \
-> (x, y, z) -> data->mtrx.node[i][j].x data->mtrx.node[i][j].y data->mtrx.node[i][j].z \
-> (x', y') -> data->mtrx.node[i][j].x_p data->mtrx.node[i][j].y_p 
+> ./srcs/rendering/ft_transform.c 
+
+This code is the final representation of the multiplication of the 3 matrices \
+(x, y, z) -> data->mtrx.node[i][j].x data->mtrx.node[i][j].y data->mtrx.node[i][j].z \
+(x', y') -> data->mtrx.node[i][j].x_p data->mtrx.node[i][j].y_p 
 
 ```
 void	ft_transform(t_data *data, int i, int j)
@@ -226,9 +225,10 @@ void	bresenhams(t_data *data, t_point p1, t_point p2)
 Setting the double level gradient color
 ---------------------------------------
 
-> ./srcs/rendering/utils/ft_colors_utils.c \
-> t_point   - the structure with info about the given point \
-> num       - num (0, 255) to calculate the gradient    
+> ./srcs/rendering/utils/ft_colors_utils.c 
+
+t_point   - the structure with info about the given point \
+num       - num (0, 255) to calculate the gradient    
 ```
 void	ft_set_colors_sep(t_data *data, t_point *p1)
 {
@@ -266,8 +266,9 @@ Rotation management
 -------------------
 
 > ./srcs/handling/ft_keypress_utils.c
-> In the hook, I change the parameter of the projection. Then in the \
-> loop_hook I draw the projection with given parameters
+
+In the hook, I change the parameter of the projection. Then in the \
+loop_hook I draw the projection with given parameters
 ```
 void	ft_handle_rotation(int keysym, t_data *data)
 {
