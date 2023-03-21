@@ -90,9 +90,9 @@ Code Overview
 
 General structure 
 -----------------
-```
-./headers/ft_data.h
+> ./headers/ft_data.h
 
+```
 typedef struct s_node
 {
 	float		x;
@@ -125,9 +125,9 @@ typedef struct s_data
 MLX management
 --------------
 
-```
-./srcs/ft_main.c
+> ./srcs/ft_main.c
 
+```
 int	main(int argc, char **argv)
 {
 	t_data	*my_data;
