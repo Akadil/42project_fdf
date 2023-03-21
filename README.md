@@ -42,24 +42,25 @@ About
 - The management of the window must remain smooth
 - ESC and cross button
 
+> <i>[Back to top](#table-of-contents)</i>
+
 <br></br>
 
 Installation
 ============
-> <i>[Back to top](#table-of-contents)</i>
 
 Clone repository, then 
 ```bash
 $ make
 $ ./fdf maps/42.fdf
 ```
+> <i>[Back to top](#table-of-contents)</i>
 
-<br> </br>
+<br></br>
+
 
 Structure of the code
 =====================
-> <i>[Back to top](#table-of-contents)</i>
-
     .
     ├── mlx_linux				    # Graphic library
     |── libft					    # Previously saved function
@@ -86,6 +87,8 @@ Structure of the code
 	|	    └── ft_error.c
     └── test                        # Test mlx and ideas
 
+> <i>[Back to top](#table-of-contents)</i>
+
 <br> </br>
 
 Code Overview
@@ -93,7 +96,6 @@ Code Overview
 
 General structure
 -----------------
-> <i>[Back to top](#table-of-contents)</i>
 
 ```
 ./headers/ft_data.h
@@ -126,11 +128,12 @@ typedef struct s_data
 	t_param		param;
 }				t_data;     # General storage
 ```
+> <i>[Back to top](#table-of-contents)</i>
+
+<br></br>
 
 MLX management
 --------------
-
-> <i>[Back to top](#table-of-contents)</i>
 
 ```
 ./srcs/ft_main.c
@@ -152,10 +155,12 @@ int	main(int argc, char **argv)
 	return (0);
 }
 ```
+> <i>[Back to top](#table-of-contents)</i>
+
+<br></br>
 
 3D to 2D transformation
 -----------------------
-> <i>[Back to top](#table-of-contents)</i>
 
 This code is the final representation of the multiplication of the 3 matrices \
 (x, y, z) -> data->mtrx.node[i][j].x data->mtrx.node[i][j].y data->mtrx.node[i][j].z \
@@ -194,10 +199,12 @@ void	ft_transform(t_data *data, int i, int j)
 	data->mtrx.node[i][j].y_p = (int)y_p;
 }
 ```
+> <i>[Back to top](#table-of-contents)</i>
+
+<br></br>
 
 Drawing a line
 --------------
-> <i>[Back to top](#table-of-contents)</i>
 
 ```
 ./srcs/rendering/ft_draw_line.c
@@ -230,10 +237,12 @@ void	bresenhams(t_data *data, t_point p1, t_point p2)
 	ft_pixel(data, p.x_p, p.y_p, ft_color(p1, p2, p));
 }
 ```
+> <i>[Back to top](#table-of-contents)</i>
+
+<br></br>
 
 Double level gradient color
 ---------------------------------------
-> <i>[Back to top](#table-of-contents)</i>
 
 t_point   - the structure with info about the given point \
 num       - num (0, 255) to calculate the gradient    
@@ -271,10 +280,12 @@ void	ft_set_colors_sep(t_data *data, t_point *p1)
 	}
 }
 ```
+> <i>[Back to top](#table-of-contents)</i>
+
+<br></br>
 
 Rotation management
 -------------------
-> <i>[Back to top](#table-of-contents)</i>
 
 In the hook, I change the parameter of the projection. Then in the \
 loop_hook I draw the projection with given parameters
@@ -298,12 +309,12 @@ void	ft_handle_rotation(int keysym, t_data *data)
 		data->param.theta -= 5;
 }
 ```
+> <i>[Back to top](#table-of-contents)</i>
 
-<br> </br>
+<br></br>
 
 Keyboard
 =========
-> <i>[Back to top](#table-of-contents)</i>
 
 - `a and d` rotate through y axes
 - `w and s` rotate through x axes
@@ -312,12 +323,13 @@ Keyboard
 - `+ and -` zoom in and out
 - `z and x` change the height of the map
 - `space` change the color
+> <i>[Back to top](#table-of-contents)</i>
 
-<br> </br>
+<br></br>
+
 
 Results
 =======
-> <i>[Back to top](#table-of-contents)</i>
 
 <img src="./images/ezgif.com-video-to-gif.gif" alt="Alt text" title="Final product" style="display: inline-block; margin: 0 auto; max-width: 400px">
 
@@ -326,7 +338,6 @@ Results
 <img src="./images/Screenshot from 2023-03-20 20-58-19.png" alt="Alt text" title="Final product" style="display: inline-block; margin: 0 auto; max-width: 100px">
 <img src="./images/Screenshot from 2023-03-20 20-59-19.png" alt="Alt text" title="Final product" style="display: inline-block; margin: 0 auto; max-width: 100px">
 <img src="./images/Screenshot from 2023-03-20 20-59-50.png" alt="Alt text" title="Final product" style="display: inline-block; margin: 0 auto; max-width: 100px">
+> <i>[Back to top](#table-of-contents)</i>
 
-<br> </br>
-
-
+<br></br>
