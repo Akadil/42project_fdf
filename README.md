@@ -24,7 +24,7 @@ Table of contents
 <!--te-->
 <br> </br>
 
-About
+About 
 =====
 
 #### End product:
@@ -44,7 +44,7 @@ About
 
 <br></br>
 
-Installation [back](#table-of-contents)
+Installation <i>[[go back]](#table-of-contents)</i>
 ============
 
 Clone repository, then 
@@ -55,7 +55,7 @@ $ ./fdf maps/42.fdf
 
 <br> </br>
 
-Structure of the code
+Structure of the code <i>[[go back]](#table-of-contents)</i>
 =====================
     .
     ├── mlx_linux				    # Graphic library
@@ -123,7 +123,7 @@ typedef struct s_data
 }				t_data;     # General storage
 ```
 
-MLX management
+MLX management <i>[[go back]](#table-of-contents)</i>
 --------------
 
 > ./srcs/ft_main.c
@@ -147,7 +147,7 @@ int	main(int argc, char **argv)
 }
 ```
 
-3D to 2D transformation
+3D to 2D transformation <i>[[go back]](#table-of-contents)</i>
 -----------------------
 
 > ./srcs/rendering/ft_transform.c 
@@ -188,7 +188,7 @@ void	ft_transform(t_data *data, int i, int j)
 }
 ```
 
-Drawing a line 
+Drawing a line <i>[[go back]](#table-of-contents)</i>
 --------------
 
 > ./srcs/rendering/ft_draw_line.c
@@ -223,7 +223,7 @@ void	bresenhams(t_data *data, t_point p1, t_point p2)
 }
 ```
 
-Setting the double level gradient color
+Double level gradient color <i>[[go back]](#table-of-contents)</i>
 ---------------------------------------
 
 > ./srcs/rendering/utils/ft_colors_utils.c 
@@ -263,7 +263,7 @@ void	ft_set_colors_sep(t_data *data, t_point *p1)
 }
 ```
 
-Rotation management
+Rotation management <i>[[go back]](#table-of-contents)</i>
 -------------------
 
 > ./srcs/handling/ft_keypress_utils.c
@@ -290,7 +290,7 @@ void	ft_handle_rotation(int keysym, t_data *data)
 
 <br> </br>
 
-Keyboard:
+Keyboard <i>[[go back]](#table-of-contents)</i>
 =========
 
 - `a and d` rotate through y axes
@@ -303,7 +303,7 @@ Keyboard:
 
 <br> </br>
 
-Results
+Results <i>[[go back]](#table-of-contents)</i>
 =======
 
 <img src="./images/ezgif.com-video-to-gif.gif" alt="Alt text" title="Final product" style="display: inline-block; margin: 0 auto; max-width: 400px">
