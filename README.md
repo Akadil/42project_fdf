@@ -44,7 +44,7 @@ About
 
 <br></br>
 
-Installation
+Installation [Go back][#Table-of-contents]
 ============
 
 Clone repository, then 
