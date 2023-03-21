@@ -42,7 +42,7 @@ About
 - The management of the window must remain smooth
 - ESC and cross button
 
-> <i>[Back to table of contents](#table-of-contents) or [back to top](.)</i> 
+> <i>[Back to table of contents](#table-of-contents) or [back to top](../../)</i> 
 
 <br></br>
 
@@ -54,7 +54,7 @@ Clone repository, then
 $ make
 $ ./fdf maps/42.fdf
 ```
-> <i>[Back to table of contents](#table-of-contents) or [back to top](.)</i> 
+> <i>[Back to table of contents](#table-of-contents) or [back to top](../../)</i> 
 
 <br></br>
 
@@ -87,7 +87,7 @@ Structure of the code
 	|	    └── ft_error.c
     └── test                        # Test mlx and ideas
 
-> <i>[Back to table of contents](#table-of-contents) or [back to top](.)</i> 
+> <i>[Back to table of contents](#table-of-contents) or [back to top](../../)</i> 
 
 <br> </br>
 
@@ -128,7 +128,7 @@ typedef struct s_data
 	t_param		param;
 }				t_data;     # General storage
 ```
-> <i>[Back to table of contents](#table-of-contents) or [back to top](.)</i> 
+> <i>[Back to table of contents](#table-of-contents) or [back to top](../../)</i> 
 
 <br></br>
 
@@ -155,7 +155,7 @@ int	main(int argc, char **argv)
 	return (0);
 }
 ```
-> <i>[Back to table of contents](#table-of-contents) or [back to top](.)</i> 
+> <i>[Back to table of contents](#table-of-contents) or [back to top](../../)</i> 
 
 <br></br>
 
@@ -199,7 +199,7 @@ void	ft_transform(t_data *data, int i, int j)
 	data->mtrx.node[i][j].y_p = (int)y_p;
 }
 ```
-> <i>[Back to table of contents](#table-of-contents) or [back to top](.)</i> 
+> <i>[Back to table of contents](#table-of-contents) or [back to top](../../)</i> 
 
 <br></br>
 
@@ -237,7 +237,7 @@ void	bresenhams(t_data *data, t_point p1, t_point p2)
 	ft_pixel(data, p.x_p, p.y_p, ft_color(p1, p2, p));
 }
 ```
-> <i>[Back to table of contents](#table-of-contents) or [back to top](.)</i> 
+> <i>[Back to table of contents](#table-of-contents) or [back to top](../../)</i> 
 
 <br></br>
 
@@ -280,7 +280,7 @@ void	ft_set_colors_sep(t_data *data, t_point *p1)
 	}
 }
 ```
-> <i>[Back to table of contents](#table-of-contents) or [back to top](.)</i> 
+> <i>[Back to table of contents](#table-of-contents) or [back to top](../../)</i> 
 
 <br></br>
 
@@ -309,7 +309,7 @@ void	ft_handle_rotation(int keysym, t_data *data)
 		data->param.theta -= 5;
 }
 ```
-> <i>[Back to table of contents](#table-of-contents) or [back to top](.)</i> 
+> <i>[Back to table of contents](#table-of-contents) or [back to top](../../)</i> 
 
 <br></br>
 
@@ -323,7 +323,7 @@ Keyboard
 - `+ and -` zoom in and out
 - `z and x` change the height of the map
 - `space` change the color
-> <i>[Back to table of contents](#table-of-contents) or [back to top](.)</i> 
+> <i>[Back to table of contents](#table-of-contents) or [back to top](../../)</i> 
 
 <br></br>
 
