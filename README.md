@@ -88,8 +88,9 @@ Structure of the code
 Code Overview
 =============
 
-General structure [go back](#table-of-contents)
+General structure <i>[[go back]](#table-of-contents)</i>
 -----------------
+
 > ./headers/ft_data.h
 
 ```
