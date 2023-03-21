@@ -9,12 +9,14 @@ Table of contents
 
 <!--ts-->
    * [About](#About)
-   * [Structure](#Structure)
    * [Installation](#Installation)
+   * [Structure](#Structure)
+   * [Key_functions](#Key_functions)
    * [Keyboard](#Keyboard)
    * [Result](#Results)
 
 <!--te-->
+<br> </br>
 
 About
 =====
@@ -34,6 +36,17 @@ About
 - The management of the window must remain smooth
 - ESC and cross button
 
+<br></br>
+
+Installation
+============
+
+Clone repository, then 
+```
+make
+./fdf maps/42.fdf
+```
+
 <br> </br>
 
 Structure
@@ -41,39 +54,219 @@ Structure
 Structure of the code
 
     .
-    ├── mlx_linux				# Graphic library
-    |── libft					# Previously saved function
+    ├── mlx_linux				    # Graphic library
+    |── libft					    # Previously saved function
     |── headers
-    └── srcs
-        ├── main.c				# All big stages of the code  
-        ├── ft_parsing.c			# Parsing and preprocessing
-        |	└── parsing
-        |		├── includes
-        |		├── utils
-        |		└── *.c
-        ├── ft_rendering.c			# functions to run the render
-        |	└── rendering
-        |		├── includes
-        |		├── utils
-        |		└── *.c
-        ├── ft_handling.c			# Control the map
-        |	└── handling
-        |		├── includes
-        |		├── utils
-        |		└── *.c
-	└── utils
-		├── ft_clean.c			
-		└── ft_error.c
+    |── srcs
+    |    ├── main.c				    # All big stages of the code  
+    |    ├── ft_parsing.c			# Parsing and preprocessing
+    |    |	└── parsing
+    |    |		├── includes
+    |    |		├── utils
+    |    |		└── *.c
+    |    ├── ft_rendering.c			# functions to run the render
+    |    |	└── rendering
+    |    |		├── includes
+    |    |		├── utils
+    |    |		└── *.c
+    |    ├── ft_handling.c			# Control the map
+    |    |	└── handling
+    |    |		├── includes
+    |    |		├── utils
+    |    |		└── *.c
+	|    └── utils
+	|	    ├── ft_clean.c			
+	|	    └── ft_error.c
+    └── test                        # Test mlx and ideas
 
 <br> </br>
 
-Installation
-============
+Key_functions
+=============
 
-On Linux:
+### General structure 
 ```
-make
-./fdf maps/42.fdf
+./headers/ft_data.h
+
+typedef struct s_node
+{
+	float		x;
+	float		y;
+	int			z;
+	int			color;
+	int			x_p;
+	int			y_p;
+}				t_node;     # Info about one point in the map
+
+typedef struct s_matrix
+{
+	t_node		**node;
+	int			height;
+	int			width;
+	int			z_max;
+	int			z_min;
+}				t_matrix;   # Info about the map
+
+typedef struct s_data
+{
+	void		*mlx_ptr;
+	void		*win_ptr;
+	t_img		img;
+	t_matrix	mtrx;
+	t_param		param;
+}				t_data;     # General storage
+```
+
+### MLX management
+```
+./srcs/ft_main.c
+
+int	main(int argc, char **argv)
+{
+	t_data	*my_data;
+
+	my_data = NULL;
+	ft_init(&my_data);
+	ft_parsing(argc, argv, my_data);
+
+	mlx_loop_hook(my_data->mlx_ptr, &ft_rendering, my_data);
+	mlx_hook(my_data->win_ptr, KeyPress, KeyPressMask, &ft_handle_keypress, my_data);
+	mlx_hook(my_data->win_ptr, DestroyNotify, NoEventMask, &ft_handle_exit, my_data);
+	mlx_loop(my_data->mlx_ptr);
+
+	ft_clean(my_data);
+	return (0);
+}
+```
+
+### 3D to 2D transformation
+> ./srcs/rendering/ft_transform.c \
+> This code is the final representation of the multiplication of the 3 matrices \
+> (x, y, z) -> data->mtrx.node[i][j].x data->mtrx.node[i][j].y data->mtrx.node[i][j].z \
+> (x', y') -> data->mtrx.node[i][j].x_p data->mtrx.node[i][j].y_p 
+
+```
+void	ft_transform(t_data *data, int i, int j)
+{
+	float	x_p;
+	float	y_p;
+	int		x;
+	int		y;
+	int		z;
+
+	x = data->mtrx.node[i][j].x * data->param.grid;
+	y = data->mtrx.node[i][j].y * data->param.grid;
+	z = data->mtrx.node[i][j].z * data->param.attitude;
+
+	x_p = 0.0;
+	x_p += x * cos(ft_rad(data->param.theta)) * cos(ft_rad(data->param.beta));
+	x_p -= z * sin(ft_rad(data->param.beta));
+	x_p -= y * sin(ft_rad(data->param.theta)) * cos(ft_rad(data->param.beta));
+	x_p += data->param.x_offset;
+
+	y_p = 0.0;
+	y_p += x * sin(ft_rad(data->param.theta)) * cos(ft_rad(data->param.alpha));
+	y_p += y * cos(ft_rad(data->param.theta)) * cos(ft_rad(data->param.alpha));
+	y_p += x * cos(ft_rad(data->param.theta)) * sin(ft_rad(data->param.beta)) * sin(ft_rad(data->param.alpha));
+	y_p -= y * sin(ft_rad(data->param.theta)) * sin(ft_rad(data->param.beta)) * sin(ft_rad(data->param.alpha));
+	y_p += z * cos(ft_rad(data->param.beta)) * sin(ft_rad(data->param.alpha));
+	y_p += data->param.y_offset;
+
+	data->mtrx.node[i][j].x_p = (int)x_p;
+	data->mtrx.node[i][j].y_p = (int)y_p;
+}
+```
+
+### Drawing a line 
+> ./srcs/rendering/ft_draw_line.c
+
+```
+void	bresenhams(t_data *data, t_point p1, t_point p2)
+{
+	t_point	p;
+	int		err;
+	int		e;
+
+	p.x_p = p1.x_p;
+	p.y_p = p1.y_p;
+	err = ft_abs(p2.x_p, p1.x_p) - ft_abs(p2.y_p, p1.y_p);
+	ft_set_colors(data, &p1, &p2);
+	while (p.x_p != p2.x_p || p.y_p != p2.y_p)
+	{
+		ft_pixel(data, p.x_p, p.y_p, ft_color(p1, p2, p));
+		e = 2 * err;
+		if (e > -1 * ft_abs(p2.y_p, p1.y_p))
+		{
+			err -= ft_abs(p2.y_p, p1.y_p);
+			p.x_p += ft_slope(p1.x_p, p2.x_p);
+		}
+		if (e < ft_abs(p2.x_p, p1.x_p))
+		{
+			err += ft_abs(p2.x_p, p1.x_p);
+			p.y_p += ft_slope(p1.y_p, p2.y_p);
+		}
+	}
+	ft_pixel(data, p.x_p, p.y_p, ft_color(p1, p2, p));
+}
+```
+
+### Setting the double level gradient color
+> ./srcs/rendering/utils/ft_colors_utils.c \
+> t_point   - the structure with info about the given point \
+> num       - num (0, 255) to calculate the gradient    
+```
+void	ft_set_colors_sep(t_data *data, t_point *p1)
+{
+	int	num;
+
+	if (data->mtrx.node[p1->i][p1->j].color != -1)
+		p1->color = data->mtrx.node[p1->i][p1->j].color;
+	else
+	{
+		if (data->mtrx.z_max - data->mtrx.z_min == 0)
+			num = 255;
+		else
+			num = (float)(data->mtrx.node[p1->i][p1->j].z - data->mtrx.z_min)
+				/ (float)(data->mtrx.z_max - data->mtrx.z_min) * 255;
+
+		if (data->param.color % 3 == 1 && num < 0.5 * 255)
+			p1->color = create_rgb(255, num * 2, 0);
+		else if (data->param.color % 3 == 1 && num >= 0.5 * 255)
+			p1->color = create_rgb(255, 255, num);
+
+		else if (data->param.color % 3 == 2 && num < 0.5 * 255)
+			p1->color = create_rgb(num * 2, 0, 255);
+		else if (data->param.color % 3 == 2 && num >= 0.5 * 255)
+			p1->color = create_rgb(255, num, 255);
+
+		else if (data->param.color % 3 == 0 && num < 0.5 * 255)
+			p1->color = create_rgb(0, 255, num * 2);
+		else
+			p1->color = create_rgb(num, 255, 255);
+	}
+}
+```
+
+### Rotation management
+> ./srcs/handling/ft_keypress_utils.c
+> In the hook, I change the parameter of the projection. Then in the \
+> loop_hook I draw the projection with given parameters
+```
+void	ft_handle_rotation(int keysym, t_data *data)
+{
+	if (keysym == 'a')
+		data->param.beta -= 5;
+	if (keysym == 'd')
+		data->param.beta += 5;
+	if (keysym == 'w')
+		data->param.alpha += 5;
+	if (keysym == 's')
+		data->param.alpha -= 5;
+	if (keysym == 'q')
+		data->param.theta += 5;
+	if (keysym == 'e')
+		data->param.theta -= 5;
+}
 ```
 
 <br> </br>
