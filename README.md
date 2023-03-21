@@ -44,7 +44,7 @@ About
 
 <br></br>
 
-Installation [Go back](#table-of-contents)
+Installation [back](#table-of-contents)
 ============
 
 Clone repository, then 
@@ -88,7 +88,7 @@ Structure of the code
 Code Overview
 =============
 
-General structure 
+General structure [back](#table-of-contents)
 -----------------
 > ./headers/ft_data.h
 
