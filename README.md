@@ -59,7 +59,7 @@ $ ./fdf maps/42.fdf
 <br></br>
 
 
-Structure of the code
+Structure of the project
 =====================
     .
     ├── mlx_linux				    # Graphic library
