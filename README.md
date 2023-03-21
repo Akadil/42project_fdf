@@ -44,8 +44,9 @@ About
 
 <br></br>
 
-Installation <i>[[go back]](#table-of-contents)</i>
+Installation
 ============
+> <i>[Back to top](#table-of-contents)</i>
 
 Clone repository, then 
 ```bash
@@ -55,8 +56,10 @@ $ ./fdf maps/42.fdf
 
 <br> </br>
 
-Structure of the code <i>[[go back]](#table-of-contents)</i>
+Structure of the code
 =====================
+> <i>[Back to top](#table-of-contents)</i>
+
     .
     ├── mlx_linux				    # Graphic library
     |── libft					    # Previously saved function
@@ -88,12 +91,13 @@ Structure of the code <i>[[go back]](#table-of-contents)</i>
 Code Overview
 =============
 
-General structure <i>[[go back]](#table-of-contents)</i>
+General structure
 -----------------
-
-> ./headers/ft_data.h
+> <i>[Back to top](#table-of-contents)</i>
 
 ```
+./headers/ft_data.h
+
 typedef struct s_node
 {
 	float		x;
@@ -123,12 +127,14 @@ typedef struct s_data
 }				t_data;     # General storage
 ```
 
-MLX management <i>[[go back]](#table-of-contents)</i>
+MLX management
 --------------
 
-> ./srcs/ft_main.c
+> <i>[Back to top](#table-of-contents)</i>
 
 ```
+./srcs/ft_main.c
+
 int	main(int argc, char **argv)
 {
 	t_data	*my_data;
@@ -147,16 +153,17 @@ int	main(int argc, char **argv)
 }
 ```
 
-3D to 2D transformation <i>[[go back]](#table-of-contents)</i>
+3D to 2D transformation
 -----------------------
-
-> ./srcs/rendering/ft_transform.c 
+> <i>[Back to top](#table-of-contents)</i>
 
 This code is the final representation of the multiplication of the 3 matrices \
 (x, y, z) -> data->mtrx.node[i][j].x data->mtrx.node[i][j].y data->mtrx.node[i][j].z \
 (x', y') -> data->mtrx.node[i][j].x_p data->mtrx.node[i][j].y_p 
 
 ```
+ ./srcs/rendering/ft_transform.c 
+
 void	ft_transform(t_data *data, int i, int j)
 {
 	float	x_p;
@@ -188,12 +195,13 @@ void	ft_transform(t_data *data, int i, int j)
 }
 ```
 
-Drawing a line <i>[[go back]](#table-of-contents)</i>
+Drawing a line
 --------------
-
-> ./srcs/rendering/ft_draw_line.c
+> <i>[Back to top](#table-of-contents)</i>
 
 ```
+./srcs/rendering/ft_draw_line.c
+
 void	bresenhams(t_data *data, t_point p1, t_point p2)
 {
 	t_point	p;
@@ -223,14 +231,15 @@ void	bresenhams(t_data *data, t_point p1, t_point p2)
 }
 ```
 
-Double level gradient color <i>[[go back]](#table-of-contents)</i>
+Double level gradient color
 ---------------------------------------
-
-> ./srcs/rendering/utils/ft_colors_utils.c 
+> <i>[Back to top](#table-of-contents)</i>
 
 t_point   - the structure with info about the given point \
 num       - num (0, 255) to calculate the gradient    
 ```
+./srcs/rendering/utils/ft_colors_utils.c 
+
 void	ft_set_colors_sep(t_data *data, t_point *p1)
 {
 	int	num;
@@ -263,14 +272,16 @@ void	ft_set_colors_sep(t_data *data, t_point *p1)
 }
 ```
 
-Rotation management <i>[[go back]](#table-of-contents)</i>
+Rotation management
 -------------------
-
-> ./srcs/handling/ft_keypress_utils.c
+> <i>[Back to top](#table-of-contents)</i>
 
 In the hook, I change the parameter of the projection. Then in the \
 loop_hook I draw the projection with given parameters
+
 ```
+./srcs/handling/ft_keypress_utils.c
+
 void	ft_handle_rotation(int keysym, t_data *data)
 {
 	if (keysym == 'a')
@@ -290,8 +301,9 @@ void	ft_handle_rotation(int keysym, t_data *data)
 
 <br> </br>
 
-Keyboard <i>[[go back]](#table-of-contents)</i>
+Keyboard
 =========
+> <i>[Back to top](#table-of-contents)</i>
 
 - `a and d` rotate through y axes
 - `w and s` rotate through x axes
@@ -303,8 +315,9 @@ Keyboard <i>[[go back]](#table-of-contents)</i>
 
 <br> </br>
 
-Results <i>[[go back]](#table-of-contents)</i>
+Results
 =======
+> <i>[Back to top](#table-of-contents)</i>
 
 <img src="./images/ezgif.com-video-to-gif.gif" alt="Alt text" title="Final product" style="display: inline-block; margin: 0 auto; max-width: 400px">
 
