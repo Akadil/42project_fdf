@@ -336,9 +336,10 @@ Results
 Mountain
 <img src="./images/Screenshot from 2023-03-20 20-38-01.png" alt="Alt text" title="Final product" style="display: inline-block; margin: 0 auto; max-width: 100px"> 
 
+Pylone
 <img src="./images/Screenshot from 2023-03-20 21-01-24.png" alt="Alt text" title="Final product" style="display: inline-block; margin: 0 auto; max-width: 100px">
 
-
+France map
 <img src="./images/Screenshot from 2023-03-20 20-58-19.png" alt="Alt text" title="Final product" style="display: inline-block; margin: 0 auto; max-width: 100px">
 
 Fractal design
