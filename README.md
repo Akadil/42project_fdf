@@ -16,7 +16,7 @@ Table of contents
         * [MLX management](#MLX-management)
         * [3D to 2D transformation](#3d-to-2d-transformation)
         * [Drawing a line](#Drawing-a-line)
-        * [Double level gradient color](#Double-level-gradient-colot)
+        * [Double level gradient color](#Double-level-gradient-color)
         * [Rotation Management](#Rotation-Management)
    * [Keyboard](#Keyboard)
    * [Result](#Results)
@@ -338,6 +338,7 @@ Results
 <img src="./images/Screenshot from 2023-03-20 20-58-19.png" alt="Alt text" title="Final product" style="display: inline-block; margin: 0 auto; max-width: 100px">
 <img src="./images/Screenshot from 2023-03-20 20-59-19.png" alt="Alt text" title="Final product" style="display: inline-block; margin: 0 auto; max-width: 100px">
 <img src="./images/Screenshot from 2023-03-20 20-59-50.png" alt="Alt text" title="Final product" style="display: inline-block; margin: 0 auto; max-width: 100px">
+
 > <i>[Back to top](#table-of-contents)</i>
 
 <br></br>
