@@ -339,6 +339,6 @@ Results
 <img src="./images/Screenshot from 2023-03-20 20-59-19.png" alt="Alt text" title="Final product" style="display: inline-block; margin: 0 auto; max-width: 100px">
 <img src="./images/Screenshot from 2023-03-20 20-59-50.png" alt="Alt text" title="Final product" style="display: inline-block; margin: 0 auto; max-width: 100px">
 
-> <i>[Back to top](./)</i>
+> <i>[Back to top](https://github.com/Akadil/42project_fdf)</i>
 
 <br></br>
